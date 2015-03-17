@@ -15,5 +15,5 @@ while True:
 		result = json.load(response)
 		#print result['data'][0]['proc']
 		r.append(result['data'][0]['proc']["power"])
-		end = sum(r)
-		print end
+	end = sum(r)
+	print end
