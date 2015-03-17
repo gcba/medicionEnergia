@@ -17,15 +17,15 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
             r = []
             borneras = ["9061", "9062", "9063", "9064", "9065", "9066", "9071", "9072", "9073", "9074", "9075"]
             while True:
-                r = []
                 for i in borneras:
                     response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
                     result = json.load(response)
-                    #print result['data'][0]['proc']
+                    print result['data'][0]['proc']
                     r.append(result['data'][0]['proc']["power"])
-                    percent = sum(r)
-                    #print percent
-                    self.emit('consumo_total', {'power': percent})
+                percent = sum(r)
+                print percent
+                r=[]
+                self.emit('consumo_total', {'power': percent})
             gevent.sleep(0.1)
         self.spawn(sendapi)
 
@@ -47,8 +47,8 @@ class Application(object):
                 content_type = "text/javascript"
             elif path.endswith(".css"):
                 content_type = "text/css"
-            elif path.endswith(".swf"):
-                content_type = "application/x-shockwave-flash"
+            # elif path.endswith(".svg"):
+            #     content_type = "application/x-shockwave-flash"
             else:
                 content_type = "text/html"
 
