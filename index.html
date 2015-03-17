@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+	<script>
+	var socket = io.connect()
+
+	socket.on('connect', function() {
+	    console.log("Connected.");
+	});
+	
+	socket.on('data', function(data) {
+	    console.log(data)
+	});
+
+	</script>
+<body>
+	<header>
+		<h1>
+			<span class="left">Consumo</span>
+			<span class="right">Energetico</span>
+		</h1>
+	</header>
+</body>

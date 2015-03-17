@@ -1,5 +1,5 @@
 var r = require('request');
-var HOST = "http://52.10.216.233:9292/v1/circuits/"
+var HOST = "http://52.10.233.24/v1/circuits/"
 	, circuits = ["9061", "9062", "9063", "9064"];
 
 
@@ -10,6 +10,7 @@ var HOST = "http://52.10.216.233:9292/v1/circuits/"
 	cuanto tiempo tarda el procesamiento de 4 request considerando que los 4 sensores se actualizan al mismo tiempo?
 	sino se actualizan al mismo tiempo, segun la diferencia entre actualizacion de cada sensor, enviar la peticicion de
 */
+
 
 setInterval(function(){
 	console.log("################################")
