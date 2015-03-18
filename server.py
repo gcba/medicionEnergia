@@ -10,11 +10,25 @@ from socketio.server import SocketIOServer
 from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
 
+
+# traducir 
+cielo = {
+    800 : "clear sky",
+    801 : "few clouds",
+    802 : "scattered clouds",
+    803 : "broken clouds",
+    804 : "overcast clouds"
+}
+
 def clima():
-    res = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=3435910")
-    rclima = json.load(res)
-    estado = rclima['weather'][0]['description'].lower().encode()
-    return estado
+    try:
+        res = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=3435910")
+        rclima = json.load(res)
+        estado = cielo[rclima['weather'][0]['id']]
+        return estado
+    except:
+        return "null"
+
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
     def recv_connect(self):
