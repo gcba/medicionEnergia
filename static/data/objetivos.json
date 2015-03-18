@@ -1,0 +1,856 @@
+{
+	"lunes": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"martes": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"miercoles": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"jueves": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"viernes": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"sabado": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	},
+	"domingo": {
+		"0": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"1": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 143 },
+		"2": {
+			"total": 157,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 144 },
+		"3": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"4": {
+			"total": 159,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"5": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"6": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"7": {
+			"total": 157,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 144 },
+		"8": {
+			"total": 4893,
+			"aire": 4500,
+			"luz": 250,
+			"tomas": 143 },
+		"9": {
+			"total": 5069,
+			"aire": 4500,
+			"luz": 428,
+			"tomas": 141 },
+		"10": {
+			"total": 5055,
+			"aire": 4500,
+			"luz": 415,
+			"tomas": 140 },
+		"11": {
+			"total": 5048,
+			"aire": 4500,
+			"luz": 408,
+			"tomas": 140 },
+		"12": {
+			"total": 5045,
+			"aire": 4500,
+			"luz": 404,
+			"tomas": 141 },
+		"13": {
+			"total": 5039,
+			"aire": 4500,
+			"luz": 397,
+			"tomas": 142 },
+		"14": {
+			"total": 5063,
+			"aire": 4500,
+			"luz": 419,
+			"tomas": 144 },
+		"15": {
+			"total": 5151,
+			"aire": 4500,
+			"luz": 508,
+			"tomas": 143 },
+		"16": {
+			"total": 5273,
+			"aire": 4500,
+			"luz": 629,
+			"tomas": 144 },
+		"17": {
+			"total": 5305,
+			"aire": 4500,
+			"luz": 661,
+			"tomas": 144 },
+		"18": {
+			"total": 5329,
+			"aire": 4500,
+			"luz": 683,
+			"tomas": 146 },
+		"19": {
+			"total": 585,
+			"aire": 0,
+			"luz": 439,
+			"tomas": 146 },
+		"20": {
+			"total": 158,
+			"aire": 0,
+			"luz": 12,
+			"tomas": 146 },
+		"21": {
+			"total": 160,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 147 },
+		"22": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 },
+		"23": {
+			"total": 158,
+			"aire": 0,
+			"luz": 13,
+			"tomas": 145 }
+	}
+}
