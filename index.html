@@ -5,6 +5,20 @@
 	<script type="text/javascript" src="static/jquery-2.1.3.min.js"></script>
 </head>
 	<script>
+	var objetivos = (function() {
+	    var json = null;
+	    $.ajax({
+	        'async': false,
+	        'global': false,
+	        'url': "static/data/objetivos.json",
+	        'dataType': "json",
+	        'success': function (data) {
+	            json = data;
+	        }
+	    });
+	    return json;
+	})();
+
 	var socket = io.connect('/consumo');
 
 	socket.on('connect', function() {
@@ -13,13 +27,20 @@
 
 	socket.on('consumo_total', function(data) {
 		console.log(data)
-		$(".valorPower").text(data.power);
+		console.log(objetivos)
+		$("#valorTotal").text(Math.round(data.power_total));
+		$("#valorAire").text(Math.round(data.power_aire));
+		$("#valorLuz").text(Math.round(data.power_luz));
+		$("#valorTomas").text(Math.round(data.power_tomas));
 	});
 	
 	</script>
 <body>
 	<header>
 		<h1>Consumo energético</h1>
-		<h2 class="valorPower"></h2>
+		<h2 id="valorTotal"></h2>
+		<p id="valorAire"></p>
+		<p id="valorLuz"></p>
+		<p id="valorTomas"></p>
 	</header>
 </body>

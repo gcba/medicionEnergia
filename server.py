@@ -13,11 +13,11 @@ from socketio.mixins import BroadcastMixin
 
 # traducir 
 cielo = {
-    800 : "clear sky",
-    801 : "few clouds",
-    802 : "scattered clouds",
-    803 : "broken clouds",
-    804 : "overcast clouds"
+    800 : "Soleado",
+    801 : "Parcialmente soleado",
+    802 : "Parcialmente nublado",
+    803 : "Mayormente nublado",
+    804 : "Nublado"
 }
 
 def clima():
@@ -33,24 +33,52 @@ def clima():
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
     def recv_connect(self):
         def sendapi():
-            r = []
+            r_aire = []
+            r_luz = []
+            r_tomas = []
+
             restado = clima()
             count = 0
-            borneras = ["9061", "9062", "9063", "9013", "9015", "9071", "9072", "9073", "9074", "9075", "9014", "9016"]
+            borneras_aire = ["9061", "9062", "9063"]
+            borneras_luz = ["9014", "9016"]
+            borneras_tomas = ["9013", "9015", "9071", "9072", "9073", "9074", "9075"]
+
             while True:
                 count += 1
-                if count == 3500000:
+                # despues de una hora, actualizar el clima
+                if count == 3600:
                     restado = clima()
                     count = 0
-                for i in borneras:
+                
+                # loopear por borneras de aire
+                for i in borneras_aire:
                     response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
                     result = json.load(response)
-                    #print result['data'][0]['proc']
-                    r.append(result['data'][0]['proc']["power"])
-                percent = sum(r)
-                #print percent
-                r=[]
-                self.emit('consumo_total', {'power': percent, "clima": restado})
+                    r_aire.append(result['data'][0]['proc']["power"])
+
+                # loopear por borneras de luz
+                for i in borneras_luz:
+                    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
+                    result = json.load(response)
+                    r_luz.append(result['data'][0]['proc']["power"])
+
+                # loopear por borneras de tomas
+                for i in borneras_tomas:
+                    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
+                    result = json.load(response)
+                    r_tomas.append(result['data'][0]['proc']["power"])
+
+                suma_aire = sum(r_aire)
+                suma_luz = sum(r_luz)
+                suma_tomas = sum(r_tomas)
+                suma_total = suma_aire + suma_luz + suma_tomas
+                
+                # reset
+                r_aire = []
+                r_luz = []
+                r_tomas = []
+
+                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire, 'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
             gevent.sleep(0.1)
         self.spawn(sendapi)
 
