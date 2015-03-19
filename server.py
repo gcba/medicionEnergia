@@ -24,8 +24,9 @@ def clima():
     try:
         res = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=3435910")
         rclima = json.load(res)
-        estado = cielo[rclima['weather'][0]['id']]
-        return estado
+        clima = rclima['main']
+        clima.update({"cielo": cielo[rclima['weather'][0]['id']]})
+        return clima
     except:
         return "null"
 
