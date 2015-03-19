@@ -1,4 +1,4 @@
-pip install gevent-socketio
+pip install requirements.txt
 
 
 python server.py o python getdata.py

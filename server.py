@@ -4,6 +4,7 @@ import time
 import random
 import urllib
 import json
+import httplib
 
 from socketio import socketio_manage
 from socketio.server import SocketIOServer
@@ -20,6 +21,8 @@ cielo = {
     804 : "Nublado"
 }
 
+httplib.HTTPConnection.debuglevel = 1
+
 def clima():
     try:
         res = urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?id=3435910")
@@ -30,6 +33,10 @@ def clima():
     except:
         return "null"
 
+def GET(path):
+    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(path))
+    result = json.load(response)
+    return result
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
     def recv_connect(self):
@@ -53,20 +60,17 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 
                 # loopear por borneras de aire
                 for i in borneras_aire:
-                    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
-                    result = json.load(response)
+                    result = GET(i)
                     r_aire.append(result['data'][0]['proc']["power"])
 
                 # loopear por borneras de luz
                 for i in borneras_luz:
-                    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
-                    result = json.load(response)
+                    result = GET(i)
                     r_luz.append(result['data'][0]['proc']["power"])
 
                 # loopear por borneras de tomas
                 for i in borneras_tomas:
-                    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(i))
-                    result = json.load(response)
+                    result = GET(i)
                     r_tomas.append(result['data'][0]['proc']["power"])
 
                 suma_aire = sum(r_aire)
@@ -79,7 +83,8 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 r_luz = []
                 r_tomas = []
 
-                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire, 'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
+                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire, \
+                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
             gevent.sleep(0.1)
         self.spawn(sendapi)
 
