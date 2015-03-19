@@ -1,0 +1,22 @@
+body {
+	background-color: #001062;
+	color: #fff;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: 5%;
+    margin-right: 5%; 
+    width: 90%;
+}
