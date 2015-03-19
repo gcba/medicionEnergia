@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-	<script type="text/javascript" src="static/socket.io.js"></script>
-	<script type="text/javascript" src="static/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="static/js/socket.io.js"></script>
+	<script type="text/javascript" src="static/js/jquery-2.1.3.min.js"></script>
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/styles.css" rel="stylesheet">
 </head>
 	<script>
 	var objetivos = (function() {
@@ -20,27 +22,97 @@
 	})();
 
 	var socket = io.connect('/consumo');
+	var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
 	socket.on('connect', function() {
 	    console.log("Connected.");
 	});
 
 	socket.on('consumo_total', function(data) {
-		console.log(data)
-		console.log(objetivos)
-		$("#valorTotal").text(Math.round(data.power_total));
-		$("#valorAire").text(Math.round(data.power_aire));
-		$("#valorLuz").text(Math.round(data.power_luz));
-		$("#valorTomas").text(Math.round(data.power_tomas));
+		var ahora = new Date(),
+			dia_semana = dias_semana[ahora.getDay()],
+			hora_dia = ahora.getHours().toString();
+		
+		// Consumo en este momento
+		var consumo_total = data.power_total,
+			consumo_aire = data.power_aire,
+			consumo_luz = data.power_luz,
+			consumo_tomas = data.power_tomas;
+
+		// Objetivo del current dia, a la current hora	
+		var objetivo_total = objetivos[dia_semana][hora_dia].total,
+			objetivo_aire = objetivos[dia_semana][hora_dia].aire,
+			objetivo_luz = objetivos[dia_semana][hora_dia].luz,
+			objetivo_tomas = objetivos[dia_semana][hora_dia].tomas;
+		
+		if (consumo_total > objetivo_total) {
+			$("body").css("background-color", "#d32f2e");
+		} else {
+			$("body").css("background-color", "#8cc34b");
+		}
+
+		var texto_aire = "",
+			texto_luz = "",
+			texto_tomas = "";
+
+		if (consumo_aire > objetivo_aire) {
+			texto_aire = "Consumo Aire: " + Math.round(consumo_aire) + ". Objetivo Aire: " + objetivo_aire + ". ";
+			
+			if (data.clima == "Soleado") {
+				texto_aire += "Sabemos que hace calor, pero";
+			} else {
+				texto_aire += "Guachín, ni siquiera hace calor y";
+			}
+
+			texto_aire += " estás pasado con el aire.";
+		} 
+
+		if (consumo_luz > objetivo_luz) {
+			texto_luz = "Consumo Luz: " + Math.round(consumo_luz) + ". Objetivo Luz: " + objetivo_luz + ". ";
+			
+			if (data.clima == "Soleado") {
+				texto_luz += "Sabemos que hace calor, pero";
+			} else {
+				texto_luz += "Guachín, ni siquiera hace calor y";
+			}
+
+			texto_luz += " estás pasado con la luz.";
+		}
+
+		if (consumo_tomas > consumo_tomas) {
+			texto_tomas = "Consumo Tomas: " + Math.round(consumo_tomas) + ". Objetivo Tomas: " + consumo_tomas + ". ";
+			
+			if (data.clima == "Soleado") {
+				texto_tomas += "Sabemos que hace calor,";
+			} else {
+				texto_tomas = "Guachín, ni siquiera hace calor y";
+			}
+
+			texto_aire += " estás pasado con las tomas.";
+		}
+
+		$("#valorTotal").text(Math.round(consumo_total));
+		$("#valorAire").text(texto_aire);
+		$("#valorLuz").text(texto_luz);
+		$("#valorTomas").text(texto_tomas);
+
+		console.log(data);
+
 	});
 	
 	</script>
 <body>
 	<header>
-		<h1>Consumo energético</h1>
-		<h2 id="valorTotal"></h2>
-		<p id="valorAire"></p>
-		<p id="valorLuz"></p>
-		<p id="valorTomas"></p>
+		<div class="outer">
+			<div class="middle">
+				<div class="inner">
+					<h1>Consumo energético</h1>
+					<h2 id="valorTotal"></h2>
+					<p id="valorAire"></p>
+					<p id="valorLuz"></p>
+					<p id="valorTomas"></p>
+				</div>
+			</div>		
+		</div>
 	</header>
 </body>
