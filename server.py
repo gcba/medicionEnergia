@@ -5,12 +5,12 @@ import random
 import urllib
 import json
 import httplib
-
+import os
 from socketio import socketio_manage
 from socketio.server import SocketIOServer
 from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
-
+import time
 
 # traducir 
 cielo = {
@@ -21,7 +21,14 @@ cielo = {
     804 : "Nublado"
 }
 
-httplib.HTTPConnection.debuglevel = 1
+httplib.HTTPConnection.debuglevel = 0
+
+try:
+    ip   = os.environ['OPENSHIFT_PYTHON_IP']
+    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
+except:
+    ip = "0.0.0.0"
+    port = "8080"
 
 def clima():
     try:
@@ -34,9 +41,12 @@ def clima():
         return "null"
 
 def GET(path):
-    response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(path))
-    result = json.load(response)
-    return result
+    try:
+        response = urllib.urlopen("http://52.10.233.24/v1/circuits/{0}/latest".format(path))
+        result = json.load(response)
+        return result
+    except:
+        return 0
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
     def recv_connect(self):
@@ -54,7 +64,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
             while True:
                 count += 1
                 # despues de una hora, actualizar el clima
-                if count == 3600:
+                if count == 360:
                     restado = clima()
                     count = 0
                 
@@ -82,9 +92,14 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 r_aire = []
                 r_luz = []
                 r_tomas = []
+                
+                try:
+                    self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire, \
+                        'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
+                except:
+                    self.emit('consumo_total', {})
+                time.sleep(5)
 
-                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire, \
-                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
             gevent.sleep(0.1)
         self.spawn(sendapi)
 
@@ -121,12 +136,14 @@ class Application(object):
 
 
 def not_found(start_response):
+    start_response('500 Not Found', [])
     start_response('404 Not Found', [])
     return ['<h1>Not Found</h1>']
 
 
 if __name__ == '__main__':
-    print 'Listening on port http://0.0.0.0:8080 and on port 10843 (flash policy server)'
-    SocketIOServer(('0.0.0.0', 8080), Application(),
-        resource="socket.io", policy_server=True,
-        policy_listener=('0.0.0.0', 10843)).serve_forever()
+    print 'Listening on port {0} ip {1}'.format("8080", ip)
+    try:
+        SocketIOServer((ip, 8080), Application(), resource="socket.io").serve_forever()
+    except:
+        SocketIOServer((ip, 8080), Application(), resource="socket.io").serve_forever()
