@@ -50,17 +50,19 @@ def clima():
 def GET(path):
     try:
         result = []
-        response = urllib.urlopen(
-            "http://52.10.233.24/v1/circuits/{0}/latest".format(path))
-        result = json.load(response)
-        if hasattr(result, "data"):
-            print result
-            return result['data'][0]['proc']["power"]
-        else:
-            return 0
+        url = "http://52.10.233.24/v1/circuits/{0}/latest".format(path)
+        #print url
+        response = urllib.urlopen(url)
+        if response.code == 200:
+            result = dict(json.load(response))
+            #print result
+            if result.has_key('data'):
+                return result['data'][0]['proc']["power"]
+        elif response.code in [range(500, 505) + range(400, 410)]:
+            GET(path)
     except:
+        print "failed host {0}".format(url)
         return 0
-
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
