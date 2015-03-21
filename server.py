@@ -22,7 +22,8 @@ cielo = {
     801: "Parcialmente soleado",
     802: "Parcialmente nublado",
     803: "Mayormente nublado",
-    804: "Nublado"
+    804: "Nublado",
+    711: "Niebla"
 }
 
 httplib.HTTPConnection.debuglevel = 0
@@ -35,34 +36,45 @@ except:
     port = 8080
 
 
-def clima():
-    try:
-        res = urllib.urlopen(
-            "http://api.openweathermap.org/data/2.5/weather?id=3435910")
-        rclima = json.load(res)
-        clima = rclima['main']
-        clima.update({"cielo": cielo[rclima['weather'][0]['id']]})
-        return clima
-    except:
-        return "null"
+API_CLIMA = "http://api.openweathermap.org/data/2.5/weather?id=3435910"
+API_LESS = "http://52.10.233.24/v1/circuits/{0}/latest"
 
 
-def GET(path):
+def GET(url):
     try:
         result = []
-        url = "http://52.10.233.24/v1/circuits/{0}/latest".format(path)
-        #print url
+        # print url
         response = urllib.urlopen(url)
         if response.code == 200:
             result = dict(json.load(response))
-            #print result
+            # print result
             if result.has_key('data'):
                 return result['data'][0]['proc']["power"]
+            elif result.has_key('main'):
+                clima = result['main']
+                if result['weather'][0]['id'] in cielo.keys():
+                    clima.update({"cielo": cielo[result['weather'][0]['id']]})
+                else:
+                    clima.update(
+                        {"cielo": result['weather'][0]['description']})
+                return clima
+            else:
+                return 0
         elif response.code in [range(500, 505) + range(400, 410)]:
-            GET(path)
+            GET(url)
+        else:
+            return 0
     except:
         print "failed host {0}".format(url)
         return 0
+
+
+def GET_CLIMA():
+    clima = GET(API_CLIMA)
+    if clima == 0:
+        clima = "null"
+    return clima
+
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
@@ -72,7 +84,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
             r_luz, r_aire, r_tomas = [], [], []
             suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
 
-            restado = clima()
+            clima = GET_CLIMA()
             count = 0
 
             borneras_aire = ["9061", "9062", "9063"]
@@ -84,23 +96,26 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 count += 1
                 # despues de una hora, actualizar el clima
                 if count == 360:
-                    restado = clima()
+                    clima = GET_CLIMA()
                     count = 0
 
                 # loopear por borneras de aire
-                for i in borneras_aire:
-                    power = GET(i)
-                    r_aire.append(power)
+                for _id in borneras_aire:
+                    power = GET(API_LESS.format(_id))
+                    if power != None:
+                        r_aire.append(power)
 
                 # loopear por borneras de luz
-                for i in borneras_luz:
-                    power = GET(i)
-                    r_luz.append(power)
+                for _id in borneras_luz:
+                    power = GET(API_LESS.format(_id))
+                    if power != None:
+                        r_luz.append(power)
 
                 # loopear por borneras de tomas
-                for i in borneras_tomas:
-                    power = GET(i)
-                    r_tomas.append(power)
+                for _id in borneras_tomas:
+                    power = GET(API_LESS.format(_id))
+                    if power != None:
+                        r_tomas.append(power)
 
                 suma_aire = sum(r_aire)
                 suma_luz = sum(r_luz)
@@ -113,7 +128,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 r_tomas = []
 
                 self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
-                                            'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': restado})
+                                            'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
                 time.sleep(1)
 
             gevent.sleep(0.1)
@@ -158,4 +173,5 @@ def not_found(start_response):
 
 if __name__ == '__main__':
     print 'Listening on port {0} ip {1}'.format(ip, port)
-    SocketIOServer((ip, port), Application(), resource="socket.io").serve_forever()
+    SocketIOServer(
+        (ip, port), Application(), resource="socket.io").serve_forever()
