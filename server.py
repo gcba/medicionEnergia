@@ -23,7 +23,7 @@ cielo = {
     802: "Parcialmente nublado",
     803: "Mayormente nublado",
     804: "Nublado",
-    711: "Niebla"
+    711: "Neblina"
 }
 
 httplib.HTTPConnection.debuglevel = 0
