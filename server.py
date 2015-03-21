@@ -102,19 +102,19 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 # loopear por borneras de aire
                 for _id in borneras_aire:
                     power = GET(API_LESS.format(_id))
-                    if power != None:
+                    if type(power) == int:
                         r_aire.append(power)
 
                 # loopear por borneras de luz
                 for _id in borneras_luz:
                     power = GET(API_LESS.format(_id))
-                    if power != None:
+                    if type(power) == int:
                         r_luz.append(power)
 
                 # loopear por borneras de tomas
                 for _id in borneras_tomas:
                     power = GET(API_LESS.format(_id))
-                    if power != None:
+                    if type(power) == int:
                         r_tomas.append(power)
 
                 suma_aire = sum(r_aire)
