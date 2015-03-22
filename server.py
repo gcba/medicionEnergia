@@ -15,6 +15,7 @@ from socketio.server import SocketIOServer
 from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
 import time
+import types
 
 # traducir
 cielo = {
@@ -102,19 +103,19 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 # loopear por borneras de aire
                 for _id in borneras_aire:
                     power = GET(API_LESS.format(_id))
-                    if type(power) == int:
+                    if type(power) != types.NoneType:
                         r_aire.append(power)
 
                 # loopear por borneras de luz
                 for _id in borneras_luz:
                     power = GET(API_LESS.format(_id))
-                    if type(power) == int:
+                    if type(power) != types.NoneType:
                         r_luz.append(power)
 
                 # loopear por borneras de tomas
                 for _id in borneras_tomas:
                     power = GET(API_LESS.format(_id))
-                    if type(power) == int:
+                    if type(power) != types.NoneType:
                         r_tomas.append(power)
 
                 suma_aire = sum(r_aire)
