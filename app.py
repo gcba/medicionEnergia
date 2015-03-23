@@ -46,10 +46,13 @@ cielo = {
 
 
 def GET(url):
+    result = []
     try:
-        result = []
-        # print url
         response = urllib.urlopen(url)
+    except:
+        print "failed host {0}".format(url)
+        return 0
+    else:
         if response.code == 200:
             result = dict(json.load(response))
             # print result
@@ -67,9 +70,6 @@ def GET(url):
                 return 0
         else:
             return 0
-    except:
-        print "failed host {0}".format(url)
-        return 0
 
 
 def GET_CLIMA():
@@ -133,7 +133,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
                                             'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
 
-                time.sleep(5)
+                time.sleep(3)
             gevent.sleep(0.1)
         self.spawn(sendapi)
 
@@ -149,7 +149,7 @@ class Application(object):
         if path.startswith('static/') or path == 'index.html':
             try:
                 data = open(path).read()
-            except Exception:
+            except Exception:   
                 return not_found(start_response)
 
             if path.endswith(".js"):
