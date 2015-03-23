@@ -27,7 +27,7 @@ try:
     execfile(zvirtenv, dict(__file__=zvirtenv))
     ip = os.environ['OPENSHIFT_PYTHON_IP']
     port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
-except IOError:
+except:
     ip = "0.0.0.0"
     port = 8080
 
@@ -130,8 +130,8 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 r_luz = []
                 r_tomas = []
 
-                    self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
-                                                'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
+                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
+                                            'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
 
                 time.sleep(5)
             gevent.sleep(0.1)
@@ -162,10 +162,10 @@ class Application(object):
             start_response('200 OK', [('Content-Type', content_type)])
             return [data]
 
-            if path.startswith("socket.io"):
-                socketio_manage(environ, {'/consumo': consumoEnergetico})
-            else:
-                return not_found(start_response)
+        if path.startswith("socket.io"):
+            socketio_manage(environ, {'/consumo': consumoEnergetico})
+        else:
+            return not_found(start_response)
 
 
 def not_found(start_response):
