@@ -46,6 +46,7 @@ cielo = {
 
 
 def GET(url):
+    # hace peticion a api en amazon, y api clima
     result = []
     try:
         response = urllib.urlopen(url)
@@ -68,6 +69,8 @@ def GET(url):
                 return clima
             else:
                 return 0
+        elif response.code = 500:
+            return 0
         else:
             return 0
 
