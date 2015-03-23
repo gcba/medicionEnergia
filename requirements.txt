@@ -1,2 +1,0 @@
-gevent==0.16.6
-gevent-socketio==0.3.6
