@@ -8,6 +8,6 @@ setup(name='Consumo Energetico',
       description='consumo energetico visualizacion',
       author='lab gcba',
       author_email='',
-      url='',
-      install_requires=['gevent','gevent-socketio'],
+      url='https://github.com/gcba/medicionEnergia.git',
+      install_requires=['gevent','gevent-socketio']
      )
