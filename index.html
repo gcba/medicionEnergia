@@ -21,7 +21,10 @@
 	    return json;
 	})();
 
-	var socket = io.connect('/consumo');
+	var socket = io.connect('/consumo', {
+		'force new connection': true
+	});
+	
 	var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
 	socket.on('connect', function() {
@@ -100,6 +103,14 @@
 
 	});
 	
+	socket.on('error', function(e){
+		console.log(e)
+	})
+	
+	socket.on('disconnect', function(e){
+		console.log(e)
+	})
+
 	</script>
 <body>
 	<header>

@@ -1,4 +1,11 @@
-pip install requirements.txt
+Instalacion 
 
+```
+python setup.py install
+```
 
-python server.py o python getdata.py
+start server
+
+```
+python app.py
+```
