@@ -69,7 +69,7 @@ def GET(url):
                 return clima
             else:
                 return 0
-        elif response.code = 500:
+        elif response.code == 500:
             return 0
         else:
             return 0
