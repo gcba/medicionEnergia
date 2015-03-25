@@ -1,0 +1,138 @@
+@import "components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
+// @import "animate.min.css";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+                 //
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+// Import custom bootstrap components
+
+// Core variables and mixins
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/glyphicons";
+
+// Core CSS
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/type";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/code";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/forms";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/component-animations";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/dropdowns";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/button-groups";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/input-groups";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navs";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navbar";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/tooltip";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/popovers";
+
+// Utility classes
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent; }
+
+body {
+    font-size: 14px;
+    line-height: 1.42857;
+    background-color: #444444;
+    color: #fff; }
+
+h1 {
+    font-size: 4em;
+    font-weight: 200;
+    letter-spacing: -0.1rem;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 90%;
+    width: 100%;
+}
+@media only screen and (max-width:768px) {
+    .outer {
+        height: 85%;
+    }
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+.botones-pisos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#valorTotal {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: #282828;
+    bottom: 0;
+    padding: 10px;
+    font-size: 0.9em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-top: solid 1px white;
+}
+@media screen and (max-width : 540px) {
+    #footer {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width : 900px) {
+    #footer {
+        height: 15%;
+    }
+}
+
+.warnings {
+    padding: 15px;
+    background-color: #b12625;
+    display: none;
+}
