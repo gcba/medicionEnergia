@@ -147,9 +147,9 @@ class Application(object):
         self.buffer = []
 
     def __call__(self, environ, start_response):
-        path = environ['PATH_INFO'].strip('/') or 'index.html'
+        path = environ['PATH_INFO'].strip('/') or 'index.html' or 'index2.html'
 
-        if path.startswith('static/') or path == 'index.html':
+        if path.startswith('static/') or path == 'index.html' or path == 'index2.html':
             try:
                 data = open(path).read()
             except Exception:   

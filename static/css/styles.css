@@ -20,3 +20,10 @@ body {
     margin-right: 5%; 
     width: 90%;
 }
+
+.botones-pisos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
