@@ -1,4 +1,4 @@
 dist/
 *.egg-info/
 static/node_modules
-css/components
+css/components/
