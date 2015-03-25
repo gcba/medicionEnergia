@@ -66,6 +66,9 @@ def GET(url):
                 else:
                     clima.update(
                         {"cielo": result['weather'][0]['description']})
+                clima.update({"temp": clima["temp"]-273})
+                clima.update({"temp_max": clima["temp_max"]-273})
+                clima.update({"temp_min": clima["temp_min"]-273})
                 return clima
             else:
                 return 0
@@ -86,7 +89,6 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
     def recv_connect(self):
         def sendapi():
-
             r_luz, r_aire, r_tomas = [], [], []
             suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
 
@@ -95,8 +97,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
             borneras_aire = ["9061", "9062", "9063"]
             borneras_luz = ["9014", "9016"]
-            borneras_tomas = [
-                "9013", "9015", "9071", "9072", "9073", "9074", "9075"]
+            borneras_tomas = ["9013", "9015", "9071", "9072", "9073", "9074", "9075"]
 
             while True:
                 count += 1

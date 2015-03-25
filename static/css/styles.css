@@ -1,13 +1,39 @@
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent; }
+
 body {
-	background-color: #001062;
-	color: #fff;
+    font-size: 14px;
+    line-height: 1.42857;
+    background-color: #444444;
+    color: #fff; }
+
+h1 {
+    font-size: 4em;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 .outer {
     display: table;
     position: absolute;
-    height: 100%;
+    height: 90%;
     width: 100%;
+}
+@media only screen and (max-width:768px) {
+    .outer {
+        height: 85%;
+    }        
 }
 
 .middle {
@@ -26,4 +52,43 @@ body {
     top: 20px;
     right: 20px;
     z-index: 999;
+}
+
+#valorTotal {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background-color: #282828;
+    bottom: 0;
+    padding: 10px;
+    font-size: 0.9em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-top: solid 1px white; 
+}
+@media screen and (max-width : 540px) {
+    #footer {
+        font-size: 0.8em;
+    }    
+}
+
+@media screen and (max-width : 900px) {
+    #footer {
+        height: 15%;
+    }
+}
+
+.warnings {
+    padding: 15px;
+    background-color: #b12625;
+    display: none;
 }
