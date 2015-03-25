@@ -36,16 +36,34 @@ socket.on('consumo_total', function(data) {
 		consumo_luz = data.power_luz,
 		consumo_tomas = data.power_tomas;
 
+	// PARA DEBUGGING
+	// var consumo_total = 100,
+	// 	consumo_aire = 50,
+	// 	consumo_luz = 30,
+	// 	consumo_tomas = 20;
+
 	// Objetivo del current dia, a la current hora	
 	var objetivo_total = objetivos[dia_semana][hora_dia].total,
 		objetivo_aire = objetivos[dia_semana][hora_dia].aire,
 		objetivo_luz = objetivos[dia_semana][hora_dia].luz,
 		objetivo_tomas = objetivos[dia_semana][hora_dia].tomas;
+
+	// PARA DEBUGGING
+	// var objetivo_total = 0,
+	// 	objetivo_aire = 0,
+	// 	objetivo_luz = 0,
+	// 	objetivo_tomas = 0;
 	
 	if (consumo_total > objetivo_total) {
 		$("body").css("background-color", "#d32f2e");
+		$("h1#estadoGeneral").text("¡Atención!");
+		$("h2#fraseGeneral").text("El consumo de la oficina es más alto que el permitido. ¡Tienen que bajarlo!");
+		$(".warnings").show();
 	} else {
 		$("body").css("background-color", "#8cc34b");
+		$("h1#estadoGeneral").text("¡Bien!");
+		$("h2#fraseGeneral").text("El consumo de la oficina está dentro de los valores permitidos. ¡Sigan así!");
+		$(".warnings").hide();
 	}
 
 	var texto_aire = "",
@@ -53,39 +71,32 @@ socket.on('consumo_total', function(data) {
 		texto_tomas = "";
 
 	if (consumo_aire > objetivo_aire) {
-		texto_aire = "Consumo Aire: " + Math.round(consumo_aire) + ". Objetivo Aire: " + objetivo_aire + ". ";
-		
-		if (data.clima == "Soleado") {
-			texto_aire += "Sabemos que hace calor, pero";
+		texto_aire += "Los aires acondicionados están consumiendo más de lo permitido. ¿Están en 24°C? ¿Son todos necesarios? ";
+		if (data.clima.temp > 25) {
+			texto_aire += "Hace calor, sí, pero pueden mejorar el consumo. ";
+			if (data.clima.cielo != "Soleado" || data.clima.cielo != "Parcialmente soleado") {
+				texto_aire += "¡Está nublado! ";
+			}
 		} else {
-			texto_aire += "Guachín, ni siquiera hace calor y";
+			texto_aire += "¡No hace calor! ";
+			if (data.clima.cielo != "Soleado" || data.clima.cielo != "Parcialmente soleado") {
+				texto_aire += "¡Está nublado! ";
+			}
+			texto_aire += "Pueden mejorar el consumo.";
 		}
-
-		texto_aire += " estás pasado con el aire.";
 	} 
 
 	if (consumo_luz > objetivo_luz) {
-		texto_luz = "Consumo Luz: " + Math.round(consumo_luz) + ". Objetivo Luz: " + objetivo_luz + ". ";
-		
-		if (data.clima == "Soleado") {
-			texto_luz += "Sabemos que hace calor, pero";
+		texto_luz += "Las luces de la oficina están consumiendo más de lo permitido. ¿No hay ninguna prendida sin necesidad? ";
+		if (data.clima.cielo == "Soleado" || data.clima.cielo == "Parcialmente soleado") {
+			texto_luz += "El día está soleado, la luz natural ayuda a bajar el consumo. ";
 		} else {
-			texto_luz += "Guachín, ni siquiera hace calor y";
+			texto_luz += "El día está nublado, sí, pero pueden mejorar el consumo. ";
 		}
-
-		texto_luz += " estás pasado con la luz.";
 	}
 
-	if (consumo_tomas > consumo_tomas) {
-		texto_tomas = "Consumo Tomas: " + Math.round(consumo_tomas) + ". Objetivo Tomas: " + consumo_tomas + ". ";
-		
-		if (data.clima == "Soleado") {
-			texto_tomas += "Sabemos que hace calor,";
-		} else {
-			texto_tomas = "Guachín, ni siquiera hace calor y";
-		}
-
-		texto_aire += " estás pasado con las tomas.";
+	if (consumo_tomas > objetivo_tomas) {
+		texto_tomas = "Las computadoras, dispensers de agua, impresoras, televisores y otros aparatos electrónicos enchufados a la pared están consumiendo más de lo permitido. ¿No hay ninguno prendido sin necesidad? Pueden mejorar el consumo. ";
 	}
 
 	$("#valorTotal").text(Math.round(consumo_total));
