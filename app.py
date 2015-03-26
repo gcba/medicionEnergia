@@ -12,6 +12,7 @@ import time
 import types
 import bottle
 
+from bottle import error
 from socketio import socketio_manage
 from socketio.mixins import BroadcastMixin
 from socketio.namespace import BaseNamespace
