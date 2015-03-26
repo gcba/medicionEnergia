@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-	<script type="text/javascript" src="static/js/socket.io.js"></script>
-	<script type="text/javascript" src="static/js/jquery-2.1.3.min.js"></script>
-	<link href="static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="static/css/styles.css" rel="stylesheet">
+	<script type="text/javascript" src="_static/js/socket.io.js"></script>
+	<script type="text/javascript" src="_static/js/jquery-2.1.3.min.js"></script>
+	<link href="_static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="_static/css/styles.css" rel="stylesheet">
 </head>
 <body>
 	<div class="botones-pisos btn-group btn-group-lg" role="group" aria-label="...">
@@ -34,5 +34,5 @@
 			socket.emit('receive', 'segundo');
 		})()
 	</script>
-	<script type="text/javascript" src="static/js/energia.js"></script>
+	<script type="text/javascript" src="_static/js/energia.js"></script>
 </body>

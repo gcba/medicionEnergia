@@ -88,7 +88,7 @@ def GET_CLIMA():
     return clima
 
 
-def consumototal(**args):
+def consumototal(self, **args):
 
     borneras_aire = args.get('aire')
     borneras_luz = args.get('luz')
@@ -154,14 +154,14 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
             borneras_aire_5t = ["9061", "9062", "9063"]
             borneras_luz_5t = ["9014", "9016"]
             borneras_tomas_5t = ["9013", "9015", "9064", "9071", "9072", "9074", "9075"]
-            consumototal(aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas)
+            consumototal(self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
 
         elif msg == "segundo":
 
             borneras_aire_2d = ["9031", "9033", "9035"]
             borneras_luz_2d = ["9034", "9051", "9052", "9053", "9054", "9055", "9056"]
             borneras_tomas_2d = ["9021", "9022", "9023"]
-            consumototal(aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas)
+            consumototal(self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_2d)
 
 @app.get('/')
 @app.get('/quinto')

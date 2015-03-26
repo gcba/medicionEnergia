@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-	<script type="text/javascript" src="static/js/socket.io.js"></script>
-	<script type="text/javascript" src="static/js/jquery-2.1.3.min.js"></script>
-	<link href="static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="static/css/styles.css" rel="stylesheet">
+	<script type="text/javascript" src="_static/js/socket.io.js"></script>
+	<script type="text/javascript" src="_static/js/jquery-2.1.3.min.js"></script>
+	<link href="_static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="_static/css/styles.css" rel="stylesheet">
 </head>
 <body>
 	<div class="botones-pisos btn-group btn-group-lg" role="group" aria-label="...">
@@ -29,10 +29,12 @@
 	<div id="footer">
 		<p>Eficiencia Energética en Edificios Públicos. Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar</p>
 	</div>
-	<script>
-		(function() {
-			socket.emit('receive', 'quinto');
+	<script type="text/javascript">
+		var asd = (function() {
+			console.log("b")
+			//socket.emit('receive', 'quinto');
 		})()
+		asd()
 	</script>
-	<script type="text/javascript" src="static/js/energia.js"></script>
+	<script type="text/javascript" src="_static/js/energia.js"></script>
 </body>

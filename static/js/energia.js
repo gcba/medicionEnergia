@@ -1,5 +1,5 @@
 var piso = $("button.active").text().split(" ")[0];
-var objectivo_url = "static/data/objetivos" + piso + ".json";
+var objectivo_url = "_static/data/objetivos" + piso + ".json";
 
 var objetivos = (function() {
     var json = null;
