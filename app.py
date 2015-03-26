@@ -70,9 +70,9 @@ def GET(url):
                 else:
                     clima.update(
                         {"cielo": result['weather'][0]['description']})
-                clima.update({"temp": clima["temp"]-273})
-                clima.update({"temp_max": clima["temp_max"]-273})
-                clima.update({"temp_min": clima["temp_min"]-273})
+                clima.update({"temp": clima["temp"] - 273})
+                clima.update({"temp_max": clima["temp_max"] - 273})
+                clima.update({"temp_min": clima["temp_min"] - 273})
                 return clima
             else:
                 return 0
@@ -80,6 +80,7 @@ def GET(url):
             return 0
         else:
             return 0
+
 
 def GET_CLIMA():
 
@@ -137,13 +138,11 @@ def consumototal(self, **args):
         r_luz = []
         r_tomas = []
 
-
         self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
                                     'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
 
-        #time.sleep(1)
-    gevent.sleep(0.1)    
-
+        # time.sleep(1)
+    gevent.sleep(0.1)
 
 
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
@@ -154,24 +153,31 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
             borneras_aire_5t = ["9061", "9062", "9063"]
             borneras_luz_5t = ["9014", "9016"]
-            borneras_tomas_5t = ["9013", "9015", "9064", "9071", "9072", "9074", "9075"]
-            consumototal(self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
+            borneras_tomas_5t = [
+                "9013", "9015", "9064", "9071", "9072", "9074", "9075"]
+            consumototal(
+                self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
 
         elif msg == "2do":
 
             borneras_aire_2d = ["9031", "9033", "9035"]
-            borneras_luz_2d = ["9034", "9051", "9052", "9053", "9054", "9055", "9056"]
+            borneras_luz_2d = [
+                "9034", "9051", "9052", "9053", "9054", "9055", "9056"]
             borneras_tomas_2d = ["9021", "9022", "9023"]
-            consumototal(self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d)
+            consumototal(
+                self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d)
+
 
 @app.get('/')
 @app.get('/quinto')
 def root():
     return bottle.template('quinto')
 
+
 @app.get('/segundo')
 def root():
     return bottle.template('segundo')
+
 
 @app.get('/_static/<filepath:path>')
 def get_static(filepath):
@@ -182,6 +188,7 @@ def get_static(filepath):
 @error(500)
 def handler_error(error):
     return 'Nothing here, sorry'
+
 
 @app.get('/socket.io/<path:path>')
 def socketio_service(path):
@@ -196,4 +203,4 @@ if __name__ == '__main__':
                server='geventSocketIO',
                debug=True,
                reloader=True,
-              )
+               )
