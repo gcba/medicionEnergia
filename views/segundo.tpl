@@ -29,5 +29,6 @@
 	<div id="footer">
 		<p>Eficiencia Energética en Edificios Públicos. Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar</p>
 	</div>
+	
 	<script type="text/javascript" src="_static/js/energia.js"></script>
 </body>
