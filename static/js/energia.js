@@ -15,15 +15,16 @@ var objetivos = (function() {
     return json;
 })();
 
+socket.on('connect', function() {
+    console.log("Connected.");
+	socket.emit('receive', piso);
+});
+
 var socket = io.connect('/consumo', {
 	'force new connection': true
 });
 
 var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
-
-socket.on('connect', function() {
-    console.log("Connected.");
-});
 
 socket.on('consumo_total', function(data) {
 	console.log(data);

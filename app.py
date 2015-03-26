@@ -62,7 +62,7 @@ def GET(url):
             # print result
             if result.has_key('data'):
                 return result['data'][0]['proc']["power"]
-            elif result.has_key('main'):
+            elif result.has_key('main') and result.has_key('weather'):
                 clima = result['main']
                 if result['weather'][0]['id'] in cielo.keys():
                     clima.update({"cielo": cielo[result['weather'][0]['id']]})
@@ -149,19 +149,19 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
     def on_receive(self, msg):
 
-        if msg == "quinto":
+        if msg == "5to":
 
             borneras_aire_5t = ["9061", "9062", "9063"]
             borneras_luz_5t = ["9014", "9016"]
             borneras_tomas_5t = ["9013", "9015", "9064", "9071", "9072", "9074", "9075"]
             consumototal(self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
 
-        elif msg == "segundo":
+        elif msg == "2do":
 
             borneras_aire_2d = ["9031", "9033", "9035"]
             borneras_luz_2d = ["9034", "9051", "9052", "9053", "9054", "9055", "9056"]
             borneras_tomas_2d = ["9021", "9022", "9023"]
-            consumototal(self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_2d)
+            consumototal(self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d)
 
 @app.get('/')
 @app.get('/quinto')
