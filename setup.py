@@ -9,5 +9,5 @@ setup(name='Consumo Energetico',
       author='lab gcba',
       author_email='',
       url='https://github.com/gcba/medicionEnergia.git',
-      install_requires=['gevent','gevent-socketio']
+      install_requires=['bottle', 'gevent','gevent-socketio']
      )

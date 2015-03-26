@@ -26,6 +26,8 @@ socket.on('connect', function() {
 });
 
 socket.on('consumo_total', function(data) {
+	console.log(data);
+	
 	var ahora = new Date(),
 		dia_semana = dias_semana[ahora.getDay()],
 		hora_dia = ahora.getHours().toString();
