@@ -15,13 +15,13 @@ var objetivos = (function() {
     return json;
 })();
 
+var socket = io.connect('/consumo', {
+	'force new connection': true
+});
+
 socket.on('connect', function() {
     console.log("Connected.");
 	socket.emit('receive', piso);
-});
-
-var socket = io.connect('/consumo', {
-	'force new connection': true
 });
 
 var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
