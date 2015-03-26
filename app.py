@@ -176,6 +176,12 @@ def root():
 def get_static(filepath):
     return bottle.static_file(filepath, root='./static/')
 
+
+@error(404)
+@error(500)
+def handler_error(error):
+    return 'Nothing here, sorry'
+
 @app.get('/socket.io/<path:path>')
 def socketio_service(path):
     socketio_manage(bottle.request.environ,
