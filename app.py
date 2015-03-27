@@ -1,25 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from gevent import monkey
-monkey.patch_all()
 
 import gevent
 import time
-import random
 import urllib
 import json
 import httplib
 import os
 import time
 import types
+import bottle
 
+from bottle import error
 from socketio import socketio_manage
-from socketio.server import SocketIOServer
-from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
+from socketio.namespace import BaseNamespace
+from gevent import monkey
+
+monkey.patch_all()
+app = bottle.Bottle()
 
 httplib.HTTPConnection.debuglevel = 0
+
 
 try:
     zvirtenv = os.path.join(os.environ['OPENSHIFT_PYTHON_DIR'],
@@ -46,6 +49,7 @@ cielo = {
 
 
 def GET(url):
+
     # hace peticion a api en amazon, y api clima
     result = []
     try:
@@ -59,16 +63,16 @@ def GET(url):
             # print result
             if result.has_key('data'):
                 return result['data'][0]['proc']["power"]
-            elif result.has_key('main'):
+            elif result.has_key('main') and result.has_key('weather'):
                 clima = result['main']
                 if result['weather'][0]['id'] in cielo.keys():
                     clima.update({"cielo": cielo[result['weather'][0]['id']]})
                 else:
                     clima.update(
                         {"cielo": result['weather'][0]['description']})
-                clima.update({"temp": clima["temp"]-273})
-                clima.update({"temp_max": clima["temp_max"]-273})
-                clima.update({"temp_min": clima["temp_min"]-273})
+                clima.update({"temp": clima["temp"] - 273})
+                clima.update({"temp_max": clima["temp_max"] - 273})
+                clima.update({"temp_min": clima["temp_min"] - 273})
                 return clima
             else:
                 return 0
@@ -79,106 +83,124 @@ def GET(url):
 
 
 def GET_CLIMA():
+
     clima = GET(API_CLIMA)
     if clima == 0:
         clima = "null"
     return clima
 
 
-class consumoEnergetico(BaseNamespace, BroadcastMixin):
+def consumototal(self, **args):
 
-    def recv_connect(self):
-        def sendapi():
-            r_luz, r_aire, r_tomas = [], [], []
-            suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
+    borneras_aire = args.get('aire')
+    borneras_luz = args.get('luz')
+    borneras_tomas = args.get('corrientes')
 
+    r_luz, r_aire, r_tomas = [], [], []
+    suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
+
+    clima = GET_CLIMA()
+    count = 0
+
+    while True:
+
+        count += 1
+        # despues de una hora, actualizar el clima
+        if count == 360:
             clima = GET_CLIMA()
             count = 0
 
-            borneras_aire = ["9061", "9062", "9063"]
-            borneras_luz = ["9014", "9016"]
-            borneras_tomas = ["9013", "9015", "9071", "9072", "9073", "9074", "9075"]
+        # loopear por borneras de aire
+        for _id in borneras_aire:
+            power = GET(API_LESS.format(_id))
+            if type(power) != types.NoneType:
+                r_aire.append(power)
 
-            while True:
-                count += 1
-                # despues de una hora, actualizar el clima
-                if count == 360:
-                    clima = GET_CLIMA()
-                    count = 0
+        # loopear por borneras de luz
+        for _id in borneras_luz:
+            power = GET(API_LESS.format(_id))
+            if type(power) != types.NoneType:
+                r_luz.append(power)
 
-                # loopear por borneras de aire
-                for _id in borneras_aire:
-                    power = GET(API_LESS.format(_id))
-                    if type(power) != types.NoneType:
-                        r_aire.append(power)
+        # loopear por borneras de tomas
+        for _id in borneras_tomas:
+            power = GET(API_LESS.format(_id))
+            if type(power) != types.NoneType:
+                r_tomas.append(power)
 
-                # loopear por borneras de luz
-                for _id in borneras_luz:
-                    power = GET(API_LESS.format(_id))
-                    if type(power) != types.NoneType:
-                        r_luz.append(power)
+        suma_aire = sum(r_aire)
+        suma_luz = sum(r_luz)
+        suma_tomas = sum(r_tomas)
+        suma_total = suma_aire + suma_luz + suma_tomas
 
-                # loopear por borneras de tomas
-                for _id in borneras_tomas:
-                    power = GET(API_LESS.format(_id))
-                    if type(power) != types.NoneType:
-                        r_tomas.append(power)
+        # reset
+        r_aire = []
+        r_luz = []
+        r_tomas = []
 
-                suma_aire = sum(r_aire)
-                suma_luz = sum(r_luz)
-                suma_tomas = sum(r_tomas)
-                suma_total = suma_aire + suma_luz + suma_tomas
+        self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
+                                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
 
-                # reset
-                r_aire = []
-                r_luz = []
-                r_tomas = []
-
-                self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
-                                            'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
-
-                time.sleep(3)
-            gevent.sleep(0.1)
-        self.spawn(sendapi)
+        # time.sleep(1)
+    gevent.sleep(0.1)
 
 
-class Application(object):
+class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
-    def __init__(self):
-        self.buffer = []
+    def on_receive(self, msg):
 
-    def __call__(self, environ, start_response):
-        path = environ['PATH_INFO'].strip('/') or 'index.html' or 'index2.html'
+        if msg == "5to":
 
-        if path.startswith('static/') or path == 'index.html' or path == 'index2.html':
-            try:
-                data = open(path).read()
-            except Exception:   
-                return not_found(start_response)
+            borneras_aire_5t = ["9061", "9062", "9063"]
+            borneras_luz_5t = ["9014", "9016"]
+            borneras_tomas_5t = [
+                "9013", "9015", "9064", "9071", "9072", "9074", "9075"]
+            consumototal(
+                self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
 
-            if path.endswith(".js"):
-                content_type = "text/javascript"
-            elif path.endswith(".css"):
-                content_type = "text/css"
-            else:
-                content_type = "text/html"
+        elif msg == "2do":
 
-            start_response('200 OK', [('Content-Type', content_type)])
-            return [data]
-
-        if path.startswith("socket.io"):
-            socketio_manage(environ, {'/consumo': consumoEnergetico})
-        else:
-            return not_found(start_response)
+            borneras_aire_2d = ["9031", "9033", "9035"]
+            borneras_luz_2d = [
+                "9034", "9051", "9052", "9053", "9054", "9055", "9056"]
+            borneras_tomas_2d = ["9021", "9022", "9023"]
+            consumototal(
+                self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d)
 
 
-def not_found(start_response):
-    start_response('500 Not Found', [])
-    start_response('404 Not Found', [])
-    return ['<h1>Not Found</h1>']
+@app.get('/')
+@app.get('/quinto')
+def root():
+    return bottle.template('quinto')
 
+
+@app.get('/segundo')
+def root():
+    return bottle.template('segundo')
+
+
+@app.get('/_static/<filepath:path>')
+def get_static(filepath):
+    return bottle.static_file(filepath, root='./static/')
+
+
+@error(404)
+@error(500)
+def handler_error(error):
+    return 'Nothing here, sorry'
+
+
+@app.get('/socket.io/<path:path>')
+def socketio_service(path):
+    socketio_manage(bottle.request.environ,
+                    {'/consumo': consumoEnergetico}, bottle.request)
 
 if __name__ == '__main__':
     print 'Listening on port {0} ip {1}'.format(ip, port)
-    SocketIOServer((ip, port), Application(), resource="socket.io", transports=[
-                   'websocket', 'xhr-polling']).serve_forever()
+    bottle.run(app=app,
+               host=ip,
+               port=port,
+               server='geventSocketIO',
+               debug=True,
+               reloader=True,
+               )

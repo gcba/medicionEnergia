@@ -1,5 +1,5 @@
 var piso = $("button.active").text().split(" ")[0];
-var objectivo_url = "static/data/objetivos" + piso + ".json";
+var objectivo_url = "_static/data/objetivos" + piso + ".json";
 
 var objetivos = (function() {
     var json = null;
@@ -19,13 +19,16 @@ var socket = io.connect('/consumo', {
 	'force new connection': true
 });
 
-var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
-
 socket.on('connect', function() {
     console.log("Connected.");
+	socket.emit('receive', piso);
 });
 
+var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+
 socket.on('consumo_total', function(data) {
+	console.log(data);
+	
 	var ahora = new Date(),
 		dia_semana = dias_semana[ahora.getDay()],
 		hora_dia = ahora.getHours().toString();
@@ -99,7 +102,7 @@ socket.on('consumo_total', function(data) {
 		texto_tomas = "Las computadoras, dispensers de agua, impresoras, televisores y otros aparatos electrónicos enchufados a la pared están consumiendo más de lo permitido. ¿No hay ninguno prendido sin necesidad? Pueden mejorar el consumo. ";
 	}
 
-	$("#valorTotal").text(Math.round(consumo_total));
+	// $("#valorTotal").text(Math.round(consumo_total));
 	$("#valorAire").text(texto_aire);
 	$("#valorLuz").text(texto_luz);
 	$("#valorTomas").text(texto_tomas);

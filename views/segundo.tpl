@@ -7,10 +7,9 @@
 </head>
 <body>
 	<div class="botones-pisos btn-group btn-group-lg" role="group" aria-label="...">
-	  <a href="index2.html"><button type="button" class="btn btn-default active">2do Piso</button></a>
-	  <a href="index.html"><button type="button" class="btn btn-default">5to Piso</button></a>
+	  <a href="/segundo"><button type="button" class="btn btn-default active">2do Piso</button></a>
+	  <a href="/quinto"><button type="button" class="btn btn-default">5to Piso</button></a>
 	</div>
-
 	<div class="outer">
 		<div class="middle">
 			<div class="inner">
@@ -27,8 +26,8 @@
 		<div id="valorTotal"></div>
 	</div>
 	<div id="footer">
-		<p>Eficiencia Energética en Edificios Públicos. Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar</p>
+		<p>Eficiencia Energética en Edificios Públicos. Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar .</p>
 	</div>
 
-	<script type="text/javascript" src="static/js/energia.js"></script>
+	<script type="text/javascript" src="_static/js/energia.js"></script>
 </body>
