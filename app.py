@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 import gevent
 import time
 import urllib
@@ -65,15 +64,16 @@ def GET(url):
                 return result['data'][0]['proc']["power"]
             elif result.has_key('main') and result.has_key('weather'):
                 clima = result['main']
-                if result['weather'][0]['id'] in cielo.keys():
-                    clima.update({"cielo": cielo[result['weather'][0]['id']]})
-                else:
-                    clima.update(
-                        {"cielo": result['weather'][0]['description']})
-                clima.update({"temp": clima["temp"] - 273})
-                clima.update({"temp_max": clima["temp_max"] - 273})
-                clima.update({"temp_min": clima["temp_min"] - 273})
-                return clima
+                if result.has_key('temp'):
+                    if result['weather'][0]['id'] in cielo.keys():
+                        clima.update({"cielo": cielo[result['weather'][0]['id']]})
+                    else:
+                        clima.update(
+                            {"cielo": result['weather'][0]['description']})
+                    clima.update({"temp": clima["temp"] - 273})
+                    clima.update({"temp_max": clima["temp_max"] - 273})
+                    clima.update({"temp_min": clima["temp_min"] - 273})
+                    return clima
             else:
                 return 0
         elif response.code == 500:
@@ -201,6 +201,6 @@ if __name__ == '__main__':
                host=ip,
                port=port,
                server='geventSocketIO',
-               debug=True,
-               reloader=True,
+               debug=False,
+               reloader=False,
                )
