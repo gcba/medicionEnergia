@@ -25,6 +25,10 @@
 						<p id="valorLuz"></p>
 						<p id="valorTomas"></p>
 					</div>
+
+					<div class="clear">
+						<img id="carita" src="_static/img/emoticons_good.png"/>
+					</div>
 				</div>
 				<div id="valorTotal" class="odometer"></div>
 			</div>

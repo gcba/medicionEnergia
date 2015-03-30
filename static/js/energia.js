@@ -60,12 +60,13 @@ socket.on('consumo_total', function(data) {
 	if (consumo_total > objetivo_total) {
 		$("body").css("background-color", "#d32f2e");
 		$("h1#estadoGeneral").text("¡Atención!");
-		$("h2#fraseGeneral").text("El consumo de la oficina es más alto que el permitido. ¡Tienen que bajarlo!");
+		$("h2#fraseGeneral").html("El consumo de la oficina es más alto que el permitido." + "<br/>" +  "¡Tienen que bajarlo!");
 		$(".warnings").show();
+		$("#carita").attr("src", "_static/img/emoticons_bad.png");
 	} else {
 		$("body").css("background-color", "#8cc34b");
 		$("h1#estadoGeneral").text("¡Bien!");
-		$("h2#fraseGeneral").text("El consumo de la oficina está dentro de los valores permitidos. ¡Sigan así!");
+		$("h2#fraseGeneral").html("El consumo de la oficina está dentro de los valores permitidos." + "<br/>" +  "¡Sigan así!");
 		$(".warnings").hide();
 	}
 

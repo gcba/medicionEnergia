@@ -22,7 +22,6 @@ h2 {
     font-weight: 100;
     letter-spacing: 1px;
     margin-bottom: 20px;
-    width: 50%;
 }
 
 .outer {
@@ -102,5 +101,10 @@ h2 {
 }
 
 .contenidoTexto {
+    width: 70%;
     float: left;
+}
+
+.clear {
+    clear: both;
 }
