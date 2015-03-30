@@ -108,7 +108,7 @@ socket.on('consumo_total', function(data) {
 		texto_tomas = "Las computadoras, dispensers de agua, impresoras, televisores y otros aparatos electrónicos enchufados a la pared están consumiendo más de lo permitido. ¿No hay ninguno prendido sin necesidad? Pueden mejorar el consumo. ";
 	}
 
-	// $("#valorTotal").text(Math.round(consumo_total));
+	$("#valorTotal").text(Math.round(consumo_total));
 	$("#valorAire").text(texto_aire);
 	$("#valorLuz").text(texto_luz);
 	$("#valorTomas").text(texto_tomas);

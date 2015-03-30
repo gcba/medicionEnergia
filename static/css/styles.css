@@ -22,6 +22,7 @@ h2 {
     font-weight: 100;
     letter-spacing: 1px;
     margin-bottom: 20px;
+    width: 50%;
 }
 
 .outer {
@@ -55,12 +56,19 @@ h2 {
 }
 
 #valorTotal {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    float: left;
     z-index: 999;
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 100;
+    text-align: center;
+    width: 280px;
+    height: 280px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    background-color: transparent;
+    padding-top: 95px;
 }
 
 #footer {
@@ -91,4 +99,8 @@ h2 {
     padding: 15px;
     background-color: #b12625;
     display: none;
+}
+
+.contenidoTexto {
+    float: left;
 }
