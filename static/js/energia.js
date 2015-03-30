@@ -26,9 +26,9 @@ socket.on('connect', function() {
 
 var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
-socket.on('consumo_total', function(data) {
-	console.log(data);
-	
+socket.on('consumo_total', function(data) {	
+	var clima = data.clima;
+
 	var ahora = new Date(),
 		dia_semana = dias_semana[ahora.getDay()],
 		hora_dia = ahora.getHours().toString();
@@ -73,28 +73,34 @@ socket.on('consumo_total', function(data) {
 		texto_luz = "",
 		texto_tomas = "";
 
+	console.log(data);
+
 	if (consumo_aire > objetivo_aire) {
 		texto_aire += "Los aires acondicionados están consumiendo más de lo permitido. ¿Están en 24°C? ¿Son todos necesarios? ";
-		if (data.clima.temp > 25) {
-			texto_aire += "Hace calor, sí, pero pueden mejorar el consumo. ";
-			if (data.clima.cielo != "Soleado" || data.clima.cielo != "Parcialmente soleado") {
-				texto_aire += "¡Está nublado! ";
-			}
-		} else {
-			texto_aire += "¡No hace calor! ";
-			if (data.clima.cielo != "Soleado" || data.clima.cielo != "Parcialmente soleado") {
-				texto_aire += "¡Está nublado! ";
-			}
-			texto_aire += "Pueden mejorar el consumo.";
+		if (clima) {
+			if (clima.temp > 25) {
+				texto_aire += "Hace calor, sí, pero pueden mejorar el consumo. ";
+				if (clima.cielo != "Soleado" || clima.cielo != "Parcialmente soleado") {
+					texto_aire += "¡Está nublado! ";
+				}
+			} else {
+				texto_aire += "¡No hace calor! ";
+				if (clima.cielo != "Soleado" || clima.cielo != "Parcialmente soleado") {
+					texto_aire += "¡Está nublado! ";
+				}
+				texto_aire += "Pueden mejorar el consumo.";
+			}	
 		}
 	} 
 
 	if (consumo_luz > objetivo_luz) {
 		texto_luz += "Las luces de la oficina están consumiendo más de lo permitido. ¿No hay ninguna prendida sin necesidad? ";
-		if (data.clima.cielo == "Soleado" || data.clima.cielo == "Parcialmente soleado") {
-			texto_luz += "El día está soleado, la luz natural ayuda a bajar el consumo. ";
-		} else {
-			texto_luz += "El día está nublado, sí, pero pueden mejorar el consumo. ";
+		if (clima) {
+			if (clima.cielo == "Soleado" || clima.cielo == "Parcialmente soleado") {
+				texto_luz += "El día está soleado, la luz natural ayuda a bajar el consumo. ";
+			} else {
+				texto_luz += "El día está nublado, sí, pero pueden mejorar el consumo. ";
+			}	
 		}
 	}
 
