@@ -96,8 +96,9 @@ h2 {
 
 .warnings {
     padding: 15px;
-    background-color: #b12625;
+    background-color: #ffffff;
     display: none;
+    color: #858585;
 }
 
 .contenidoTexto {
@@ -107,4 +108,8 @@ h2 {
 
 .clear {
     clear: both;
+}
+
+.typed-cursor{
+    display: none;
 }

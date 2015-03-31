@@ -110,9 +110,22 @@ socket.on('consumo_total', function(data) {
 	}
 
 	$("#valorTotal").text(Math.round(consumo_total));
-	$("#valorAire").text(texto_aire);
-	$("#valorLuz").text(texto_luz);
-	$("#valorTomas").text(texto_tomas);
+	$("#valorAire").typed({
+	    strings: [texto_aire],
+	    contentType: 'html',
+	    callback: function() {
+	    	$("#valorLuz").typed({
+			    strings: [texto_luz],
+			    contentType: 'html',
+			    callback: function() {
+			    	$("#valorTomas").typed({
+					    strings: [texto_tomas],
+					    contentType: 'html' // or 'text'
+					});
+			    }  
+			});	
+	    } 
+	});
 
 	console.log(data);
 

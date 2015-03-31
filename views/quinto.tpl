@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="_static/js/odometer.min.js"></script>
 	<script type="text/javascript" src="_static/js/socket.io.js"></script>
 	<script type="text/javascript" src="_static/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="_static/js/typed.js"></script>
 	<link href="_static/css/odometer.css" rel="stylesheet">
 	<link href="_static/css/bootstrap.min.css" rel="stylesheet">
 	<link href="_static/css/styles.css" rel="stylesheet">
@@ -20,7 +21,7 @@
 					<h1 id="estadoGeneral">Consumo energético</h1>
 					<h2 id="fraseGeneral">5to Piso</h2>
 					
-					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 warnings text-center">
+					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 warnings">
 						<p id="valorAire"></p>
 						<p id="valorLuz"></p>
 						<p id="valorTomas"></p>
