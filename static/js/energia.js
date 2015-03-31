@@ -26,7 +26,10 @@ socket.on('connect', function() {
 
 var dias_semana = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
 
-socket.on('consumo_total', function(data) {	
+socket.on('consumo_total', function(data) {
+	// no sacar console.log , porque si lo pones abajo y antes aparece un error, me corta el debug
+	console.log(data);
+
 	var clima = data.clima;
 
 	var ahora = new Date(),
@@ -73,8 +76,6 @@ socket.on('consumo_total', function(data) {
 	var texto_aire = "",
 		texto_luz = "",
 		texto_tomas = "";
-
-	console.log(data);
 
 	if (consumo_aire > objetivo_aire) {
 		texto_aire += "Los aires acondicionados están consumiendo más de lo permitido. ¿Están en 24°C? ¿Son todos necesarios? ";

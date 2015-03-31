@@ -83,5 +83,5 @@ if __name__ == '__main__':
                port=port,
                server='geventSocketIO',
                debug=False,
-               reloader=True,
+               reloader=False,
                )

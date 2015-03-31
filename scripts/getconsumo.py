@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import gevent
 import time
 import urllib
@@ -21,6 +24,7 @@ cielo = {
 
 httplib.HTTPConnection.debuglevel = 0
 
+
 def GET(url):
 
     # hace peticion a api en amazon, y api clima
@@ -36,9 +40,8 @@ def GET(url):
             # print result
             if result.has_key('data'):
                 return result['data'][0]['proc']["power"]
-            elif result.has_key('main') and result.has_key('weather'):
-                clima = result['main']
-                return clima
+            elif result.has_key('weather') and result.has_key('main'):
+                return result
             else:
                 return 0
         elif response.code == 500:
@@ -49,34 +52,46 @@ def GET(url):
 
 def GET_CLIMA():
 
-    clima = GET(API_CLIMA)
-    if clima == 0:
-        clima = "null"
-        return clima
-    elif clima.has_key('temp'):
-        if clima['weather'][0]['id'] in cielo.keys():
-            clima.update({"cielo": cielo[clima['weather'][0]['id']]})
+    result = GET(API_CLIMA)
+    clima = {}
+    if result == 0:
+        result = "null"
+        return result
+    elif result['main'].has_key('temp'):
+        clima = result['main']
+        if result['weather'][0]['id'] in cielo.keys():
+            clima.update({"cielo": cielo[result['weather'][0]['id']]})
         else:
-            clima.update({"cielo": clima['weather'][0]['description']})
+            clima.update({"cielo": result['weather'][0]['description']})
         clima.update({"temp": clima["temp"] - 273})
         clima.update({"temp_max": clima["temp_max"] - 273})
         clima.update({"temp_min": clima["temp_min"] - 273})
         return clima
 
 
+def transform(array):
+    dic = {}
+    for key in range(len(array)):
+        dic.update({array[key]: 0})
+    return dic
+
 def consumototal(self, **args):
 
-    borneras_aire = args.get('aire')
-    borneras_luz = args.get('luz')
-    borneras_tomas = args.get('corrientes')
-
+    borneras_aire = transform(args.get('aire'))
+    borneras_luz = transform(args.get('luz'))
+    borneras_tomas = transform(args.get('corrientes'))
+    
     r_luz, r_aire, r_tomas = [], [], []
     suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
 
     clima = GET_CLIMA()
+    if clima != "null":
+        timewait = 300
+    else:
+        timewait = 5
+
     count = 0
-    timewait = 360
-    
+
     while True:
 
         count += 1
@@ -84,27 +99,38 @@ def consumototal(self, **args):
         if count == timewait:
             clima = GET_CLIMA()
             if clima == "null":
-                timewait = 20
+                timewait = 5
+                count = 0
             else:
+                timewait = 300
                 count = 0
 
         # loopear por borneras de aire
-        for _id in borneras_aire:
+        for _id in borneras_aire.keys():
             power = GET(API_LESS.format(_id))
             if type(power) != types.NoneType:
+                borneras_aire[_id] = power
                 r_aire.append(power)
+            else:
+                r_aire.append(borneras_aire[_id])
 
         # loopear por borneras de luz
-        for _id in borneras_luz:
+        for _id in borneras_luz.keys():
             power = GET(API_LESS.format(_id))
             if type(power) != types.NoneType:
+                borneras_luz[_id] = power
                 r_luz.append(power)
+            else:
+                r_luz.append(borneras_luz[_id])
 
         # loopear por borneras de tomas
-        for _id in borneras_tomas:
+        for _id in borneras_tomas.keys():
             power = GET(API_LESS.format(_id))
             if type(power) != types.NoneType:
+                borneras_tomas[_id] = power
                 r_tomas.append(power)
+            else:
+                r_tomas.append(borneras_tomas[_id])
 
         suma_aire = sum(r_aire)
         suma_luz = sum(r_luz)
