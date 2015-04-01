@@ -60,6 +60,6 @@ if __name__ == '__main__':
 		python gethistorico.py
 		Ingresar en formato epoch: desde hasta: 1426862657000 1427467457000
 	"""
-	sys.argv = raw_input('Ingresar en formato epoch: desde hasta: ').split()
+	sys.argv = raw_input('Ingresar en formato epoch en milisegundos: desde hasta: ').split()
 	args = sys.argv
 	main(args[0], args[1])
