@@ -1,4 +1,7 @@
-var piso = $("button.active").text().split(" ")[0];
+var piso = "5to";
+if (!$("#cmn-toggle-4").prop("checked")){
+	piso = "2do";
+}
 var objectivo_url = "_static/data/objetivos" + piso + ".json";
 
 var objetivos = (function() {
@@ -14,6 +17,16 @@ var objetivos = (function() {
     });
     return json;
 })();
+
+// Event handler - cambio de piso
+$("#cmn-toggle-4").on("change", function(){
+	// Si se vuelve checked, redirect at 5to piso
+	if($(this).prop("checked")) {
+		document.location.href = '/quinto';
+	} else {
+		document.location.href = '/segundo';
+	}
+});
 
 var socket = io.connect('/consumo', {
 	'force new connection': true
@@ -111,9 +124,22 @@ socket.on('consumo_total', function(data) {
 	}
 
 	$("#valorTotal").text(Math.round(consumo_total));
-	$("#valorAire").text(texto_aire);
-	$("#valorLuz").text(texto_luz);
-	$("#valorTomas").text(texto_tomas);
+	$("#valorAire").typed({
+	    strings: [texto_aire],
+	    contentType: 'html',
+	    callback: function() {
+	    	$("#valorLuz").typed({
+			    strings: [texto_luz],
+			    contentType: 'html',
+			    callback: function() {
+			    	$("#valorTomas").typed({
+					    strings: [texto_tomas],
+					    contentType: 'html' // or 'text'
+					});
+			    }  
+			});	
+	    } 
+	});
 
 	console.log(data);
 

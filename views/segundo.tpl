@@ -4,15 +4,19 @@
 	<script type="text/javascript" src="_static/js/odometer.min.js"></script>
 	<script type="text/javascript" src="_static/js/socket.io.js"></script>
 	<script type="text/javascript" src="_static/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="_static/js/typed.js"></script>
 	<link href="_static/css/odometer.css" rel="stylesheet">
 	<link href="_static/css/bootstrap.min.css" rel="stylesheet">
 	<link href="_static/css/styles.css" rel="stylesheet">
 </head>
 <body>
-	<div class="botones-pisos btn-group btn-group-lg" role="group" aria-label="...">
-	  <a href="/segundo"><button type="button" class="btn btn-default active">2do Piso</button></a>
-	  <a href="/quinto"><button type="button" class="btn btn-default">5to Piso</button></a>
+	<div class="switch">
+	  <span class="labels-switch">2do</span>
+	  <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+	  <label for="cmn-toggle-4"></label>
+	  <span class="labels-switch">5to</span>
 	</div>
+
 	<div class="outer">
 		<div class="middle">
 			<div class="inner">
@@ -20,7 +24,7 @@
 					<h1 id="estadoGeneral">Consumo energético</h1>
 					<h2 id="fraseGeneral">2do Piso</h2>
 					
-					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 warnings text-center">
+					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 warnings">
 						<p id="valorAire"></p>
 						<p id="valorLuz"></p>
 						<p id="valorTomas"></p>
