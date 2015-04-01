@@ -1,4 +1,7 @@
-var piso = $("button.active").text().split(" ")[0];
+var piso = "5to";
+if (!$("#cmn-toggle-4").prop("checked")){
+	piso = "2do";
+}
 var objectivo_url = "_static/data/objetivos" + piso + ".json";
 
 var objetivos = (function() {
@@ -14,6 +17,16 @@ var objetivos = (function() {
     });
     return json;
 })();
+
+// Event handler - cambio de piso
+$("#cmn-toggle-4").on("change", function(){
+	// Si se vuelve checked, redirect at 5to piso
+	if($(this).prop("checked")) {
+		document.location.href = '/quinto';
+	} else {
+		document.location.href = '/segundo';
+	}
+});
 
 var socket = io.connect('/consumo', {
 	'force new connection': true
@@ -73,8 +86,6 @@ socket.on('consumo_total', function(data) {
 	var texto_aire = "",
 		texto_luz = "",
 		texto_tomas = "";
-
-	console.log(data);
 
 	if (consumo_aire > objetivo_aire) {
 		texto_aire += "Los aires acondicionados están consumiendo más de lo permitido. ¿Están en 24°C? ¿Son todos necesarios? ";
