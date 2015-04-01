@@ -80,6 +80,7 @@ def consumototal(self, **args):
     borneras_aire = transform(args.get('aire'))
     borneras_luz = transform(args.get('luz'))
     borneras_tomas = transform(args.get('corrientes'))
+    objetivos = args.get('objetivos')
     
     r_luz, r_aire, r_tomas = [], [], []
     suma_aire, suma_luz, suma_tomas, suma_total = 0, 0, 0, 0
@@ -142,8 +143,26 @@ def consumototal(self, **args):
         r_luz = []
         r_tomas = []
 
+        notificaciones = []
+
+        if (suma_aire > 0):
+            aire_noti = Notificacion("El aire esta pasado pibita")
+            aire_texto = aire_noti.getTexto()
+            notificaciones.append(aire_texto)
+
         self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
-                                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima})
+                                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima,
+                                    'notificaciones': notificaciones, 'objetivos': objetivos})
 
         # time.sleep(1)
     gevent.sleep(0.1)
+
+class Notificacion:
+    def __init__(self, texto):
+        self.texto = texto
+
+    def getTexto(self):
+        return self.texto
+
+    def displayNotificacion(self):
+        print "Mi notificacion es %s" % self.texto

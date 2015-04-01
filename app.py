@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import json
 import gevent
 import os
 import bottle
@@ -25,28 +25,31 @@ else:
     ip = "0.0.0.0"
     port = 8080
 
-
 class consumoEnergetico(BaseNamespace, BroadcastMixin):
 
     def on_receive(self, msg):
 
         if msg == "5to":
+            with open('static/data/objetivos5to.json') as objetivos_file:    
+                objetivos = json.load(objetivos_file)
 
             borneras_aire_5t = ["9061", "9062", "9063"]
             borneras_luz_5t = ["9014", "9016"]
             borneras_tomas_5t = [
                 "9013", "9015", "9064", "9071", "9072", "9074", "9075"]
             consumototal(
-                self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t)
+                self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t, objetivos=objetivos)
 
         elif msg == "2do":
+            with open('static/data/objetivos2do.json') as objetivos_file:    
+                objetivos = json.load(objetivos_file)
 
             borneras_aire_2d = ["9031", "9033", "9035"]
             borneras_luz_2d = [
                 "9034", "9051", "9052", "9053", "9054", "9055", "9056"]
             borneras_tomas_2d = ["9021", "9022", "9023"]
             consumototal(
-                self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d)
+                self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d, objetivos=objetivos)
 
 
 @app.get('/')

@@ -44,6 +44,18 @@ socket.on('consumo_total', function(data) {
 	console.log(data);
 
 	var clima = data.clima;
+	var notificaciones = data.notificaciones;
+
+	if (notificaciones.length > 0) {
+		if(! ('Notification' in window) ){
+			alert('Web Notification is not supported');
+			return;
+		}	
+
+		Notification.requestPermission(function(permission){
+			var notification = new Notification("Alerta!",{body:notificaciones[0]});
+		});
+	}
 
 	var ahora = new Date(),
 		dia_semana = dias_semana[ahora.getDay()],
@@ -84,6 +96,7 @@ socket.on('consumo_total', function(data) {
 		$("h1#estadoGeneral").text("¡Bien!");
 		$("h2#fraseGeneral").html("El consumo de la oficina está dentro de los valores permitidos." + "<br/>" +  "¡Sigan así!");
 		$(".warnings").hide();
+		$("#carita").attr("src", "_static/img/emoticons_good.png");
 	}
 
 	var texto_aire = "",
