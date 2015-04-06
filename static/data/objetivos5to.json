@@ -1,856 +1,976 @@
 {
 	"lunes": {
-		"0": {
-			"total": 633,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 500 },
-		"1": {
-			"total": 632,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 499 },
-		"2": {
-			"total": 636,
-			"aire": 33,
-			"luz": 100,
-			"tomas": 503 },
-		"3": {
-			"total": 638,
-			"aire": 33,
-			"luz": 99,
-			"tomas": 505 },
-		"4": {
-			"total": 629,
-			"aire": 33,
-			"luz": 99,
-			"tomas": 496 },
-		"5": {
-			"total": 633,
-			"aire": 33,
-			"luz": 99,
-			"tomas": 501 },
-		"6": {
-			"total": 636,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 503 },
-		"7": {
-			"total": 501,
-			"aire": 33,
-			"luz": 94,
-			"tomas": 374 },
-		"8": {
-			"total": 4522,
-			"aire": 2549,
-			"luz": 1380,
-			"tomas": 594 },
-		"9": {
-			"total": 5004,
-			"aire": 2771,
-			"luz": 1328,
-			"tomas": 905 },
-		"10": {
-			"total": 3795,
-			"aire": 2429,
-			"luz": 181,
-			"tomas": 1185 },
-		"11": {
-			"total": 3165,
-			"aire": 1728,
-			"luz": 103,
-			"tomas": 1334 },
-		"12": {
-			"total": 2856,
-			"aire": 1493,
-			"luz": 185,
-			"tomas": 1178 },
-		"13": {
-			"total": 2395,
-			"aire": 1129,
-			"luz": 115,
-			"tomas": 1152 },
-		"14": {
-			"total": 2665,
-			"aire": 1486,
-			"luz": 215,
-			"tomas": 964 },
-		"15": {
-			"total": 3063,
-			"aire": 1737,
-			"luz": 275,
-			"tomas": 1051 },
-		"16": {
-			"total": 2872,
-			"aire": 1257,
-			"luz": 280,
-			"tomas": 1335 },
-		"17": {
-			"total": 2558,
-			"aire": 1247,
-			"luz": 319,
-			"tomas": 991 },
-		"18": {
-			"total": 2521,
-			"aire": 1242,
-			"luz": 388,
-			"tomas": 891 },
-		"19": {
-			"total": 786,
-			"aire": 160,
-			"luz": 121,
-			"tomas": 505 },
-		"20": {
-			"total": 604,
-			"aire": 34,
-			"luz": 95,
-			"tomas": 476 },
-		"21": {
-			"total": 592,
-			"aire": 34,
-			"luz": 96,
-			"tomas": 462 },
-		"22": {
-			"total": 608,
-			"aire": 34,
-			"luz": 97,
-			"tomas": 477 },
-		"23": {
-			"total": 639,
-			"aire": 35,
-			"luz": 99,
-			"tomas": 505 }
+		 "0":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "1":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "2":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "3":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "4":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "5":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "6":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "7":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "8":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "9":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "10":{
+		    "tomas":1024,
+		    "aires":848,
+		    "luces":226,
+		    "total":2097
+		  },
+		  "11":{
+		    "tomas":1303,
+		    "aires":929,
+		    "luces":309,
+		    "total":2540
+		  },
+		  "12":{
+		    "tomas":1626,
+		    "aires":1654,
+		    "luces":339,
+		    "total":3619
+		  },
+		  "13":{
+		    "tomas":1428,
+		    "aires":1393,
+		    "luces":333,
+		    "total":3154
+		  },
+		  "14":{
+		    "tomas":1274,
+		    "aires":1462,
+		    "luces":438,
+		    "total":3175
+		  },
+		  "15":{
+		    "tomas":1572,
+		    "aires":891,
+		    "luces":406,
+		    "total":2869
+		  },
+		  "16":{
+		    "tomas":1534,
+		    "aires":869,
+		    "luces":412,
+		    "total":2816
+		  },
+		  "17":{
+		    "tomas":1418,
+		    "aires":848,
+		    "luces":412,
+		    "total":2678
+		  },
+		  "18":{
+		    "tomas":841,
+		    "aires":848,
+		    "luces":337,
+		    "total":2026
+		  },
+		  "19":{
+		    "tomas":841,
+		    "aires":229,
+		    "luces":112,
+		    "total":1182
+		  },
+		  "20": {
+		    "tomas":546,
+		    "aires":40,
+		    "luces":112,
+		    "total":698
+		  },
+		  "21":{
+		    "tomas":541,
+		    "aires":40,
+		    "luces":112,
+		    "total":693
+		  },
+		  "22":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "23":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  }
 	},
 	"martes": {
-		"0": {
-			"total": 605,
-			"aire": 35,
-			"luz": 99,
-			"tomas": 471 },
-		"1": {
-			"total": 590,
-			"aire": 35,
-			"luz": 99,
-			"tomas": 457 },
-		"2": {
-			"total": 604,
-			"aire": 35,
-			"luz": 98,
-			"tomas": 472 },
-		"3": {
-			"total": 602,
-			"aire": 34,
-			"luz": 99,
-			"tomas": 469 },
-		"4": {
-			"total": 597,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 464 },
-		"5": {
-			"total": 641,
-			"aire": 34,
-			"luz": 99,
-			"tomas": 508 },
-		"6": {
-			"total": 638,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 506 },
-		"7": {
-			"total": 1106,
-			"aire": 507,
-			"luz": 105,
-			"tomas": 494 },
-		"8": {
-			"total": 3402,
-			"aire": 2746,
-			"luz": 133,
-			"tomas": 523 },
-		"9": {
-			"total": 3188,
-			"aire": 2560,
-			"luz": 92,
-			"tomas": 537 },
-		"10": {
-			"total": 3194,
-			"aire": 2238,
-			"luz": 99,
-			"tomas": 857 },
-		"11": {
-			"total": 2999,
-			"aire": 1956,
-			"luz": 92,
-			"tomas": 951 },
-		"12": {
-			"total": 2349,
-			"aire": 1140,
-			"luz": 99,
-			"tomas": 1110 },
-		"13": {
-			"total": 2946,
-			"aire": 1811,
-			"luz": 101,
-			"tomas": 1034 },
-		"14": {
-			"total": 2699,
-			"aire": 1496,
-			"luz": 100,
-			"tomas": 1104 },
-		"15": {
-			"total": 3395,
-			"aire": 2149,
-			"luz": 127,
-			"tomas": 1119 },
-		"16": {
-			"total": 4023,
-			"aire": 2604,
-			"luz": 270,
-			"tomas": 1148 },
-		"17": {
-			"total": 3272,
-			"aire": 1670,
-			"luz": 468,
-			"tomas": 1134 },
-		"18": {
-			"total": 2633,
-			"aire": 1311,
-			"luz": 502,
-			"tomas": 819 },
-		"19": {
-			"total": 913,
-			"aire": 34,
-			"luz": 367,
-			"tomas": 524 },
-		"20": {
-			"total": 830,
-			"aire": 34,
-			"luz": 271,
-			"tomas": 524 },
-		"21": {
-			"total": 874,
-			"aire": 34,
-			"luz": 276,
-			"tomas": 563 },
-		"22": {
-			"total": 853,
-			"aire": 34,
-			"luz": 280,
-			"tomas": 538 },
-		"23": {
-			"total": 831,
-			"aire": 34,
-			"luz": 280,
-			"tomas": 509 }
+		"0":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "1":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "2":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "3":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "4":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "5":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "6":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "7":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "8":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "9":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "10":{
+		    "tomas":1024,
+		    "aires":848,
+		    "luces":226,
+		    "total":2097
+		  },
+		  "11":{
+		    "tomas":1303,
+		    "aires":929,
+		    "luces":309,
+		    "total":2540
+		  },
+		  "12":{
+		    "tomas":1626,
+		    "aires":1654,
+		    "luces":339,
+		    "total":3619
+		  },
+		  "13":{
+		    "tomas":1428,
+		    "aires":1393,
+		    "luces":333,
+		    "total":3154
+		  },
+		  "14":{
+		    "tomas":1274,
+		    "aires":1462,
+		    "luces":438,
+		    "total":3175
+		  },
+		  "15":{
+		    "tomas":1572,
+		    "aires":891,
+		    "luces":406,
+		    "total":2869
+		  },
+		  "16":{
+		    "tomas":1534,
+		    "aires":869,
+		    "luces":412,
+		    "total":2816
+		  },
+		  "17":{
+		    "tomas":1418,
+		    "aires":848,
+		    "luces":412,
+		    "total":2678
+		  },
+		  "18":{
+		    "tomas":841,
+		    "aires":848,
+		    "luces":337,
+		    "total":2026
+		  },
+		  "19":{
+		    "tomas":841,
+		    "aires":229,
+		    "luces":112,
+		    "total":1182
+		  },
+		  "20": {
+		    "tomas":546,
+		    "aires":40,
+		    "luces":112,
+		    "total":698
+		  },
+		  "21":{
+		    "tomas":541,
+		    "aires":40,
+		    "luces":112,
+		    "total":693
+		  },
+		  "22":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "23":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  }
 	},
 	"miercoles": {
-		"0": {
-			"total": 817,
-			"aire": 34,
-			"luz": 291,
-			"tomas": 491 },
-		"1": {
-			"total": 826,
-			"aire": 34,
-			"luz": 293,
-			"tomas": 499 },
-		"2": {
-			"total": 825,
-			"aire": 33,
-			"luz": 293,
-			"tomas": 499 },
-		"3": {
-			"total": 855,
-			"aire": 33,
-			"luz": 293,
-			"tomas": 529 },
-		"4": {
-			"total": 855,
-			"aire": 33,
-			"luz": 294,
-			"tomas": 528 },
-		"5": {
-			"total": 832,
-			"aire": 33,
-			"luz": 294,
-			"tomas": 505 },
-		"6": {
-			"total": 837,
-			"aire": 34,
-			"luz": 300,
-			"tomas": 502 },
-		"7": {
-			"total": 1509,
-			"aire": 33,
-			"luz": 937,
-			"tomas": 538 },
-		"8": {
-			"total": 3343,
-			"aire": 2549,
-			"luz": 221,
-			"tomas": 574 },
-		"9": {
-			"total": 3541,
-			"aire": 2707,
-			"luz": 99,
-			"tomas": 736 },
-		"10": {
-			"total": 4166,
-			"aire": 2989,
-			"luz": 109,
-			"tomas": 1068 },
-		"11": {
-			"total": 4480,
-			"aire": 3060,
-			"luz": 95,
-			"tomas": 1325 },
-		"12": {
-			"total": 4953,
-			"aire": 3483,
-			"luz": 99,
-			"tomas": 1372 },
-		"13": {
-			"total": 4856,
-			"aire": 3417,
-			"luz": 93,
-			"tomas": 1346 },
-		"14": {
-			"total": 4255,
-			"aire": 2989,
-			"luz": 167,
-			"tomas": 1099 },
-		"15": {
-			"total": 4150,
-			"aire": 2858,
-			"luz": 191,
-			"tomas": 1101 },
-		"16": {
-			"total": 3757,
-			"aire": 2455,
-			"luz": 193,
-			"tomas": 1109 },
-		"17": {
-			"total": 3748,
-			"aire": 2473,
-			"luz": 303,
-			"tomas": 971 },
-		"18": {
-			"total": 2508,
-			"aire": 1355,
-			"luz": 402,
-			"tomas": 751 },
-		"19": {
-			"total": 1709,
-			"aire": 650,
-			"luz": 403,
-			"tomas": 656 },
-		"20": {
-			"total": 1792,
-			"aire": 771,
-			"luz": 413,
-			"tomas": 608 },
-		"21": {
-			"total": 687,
-			"aire": 34,
-			"luz": 111,
-			"tomas": 543 },
-		"22": {
-			"total": 654,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 522 },
-		"23": {
-			"total": 637,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 505 }
+		"0":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "1":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "2":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "3":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "4":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "5":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "6":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "7":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "8":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "9":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "10":{
+		    "tomas":1024,
+		    "aires":848,
+		    "luces":226,
+		    "total":2097
+		  },
+		  "11":{
+		    "tomas":1303,
+		    "aires":929,
+		    "luces":309,
+		    "total":2540
+		  },
+		  "12":{
+		    "tomas":1626,
+		    "aires":1654,
+		    "luces":339,
+		    "total":3619
+		  },
+		  "13":{
+		    "tomas":1428,
+		    "aires":1393,
+		    "luces":333,
+		    "total":3154
+		  },
+		  "14":{
+		    "tomas":1274,
+		    "aires":1462,
+		    "luces":438,
+		    "total":3175
+		  },
+		  "15":{
+		    "tomas":1572,
+		    "aires":891,
+		    "luces":406,
+		    "total":2869
+		  },
+		  "16":{
+		    "tomas":1534,
+		    "aires":869,
+		    "luces":412,
+		    "total":2816
+		  },
+		  "17":{
+		    "tomas":1418,
+		    "aires":848,
+		    "luces":412,
+		    "total":2678
+		  },
+		  "18":{
+		    "tomas":841,
+		    "aires":848,
+		    "luces":337,
+		    "total":2026
+		  },
+		  "19":{
+		    "tomas":841,
+		    "aires":229,
+		    "luces":112,
+		    "total":1182
+		  },
+		  "20": {
+		    "tomas":546,
+		    "aires":40,
+		    "luces":112,
+		    "total":698
+		  },
+		  "21":{
+		    "tomas":541,
+		    "aires":40,
+		    "luces":112,
+		    "total":693
+		  },
+		  "22":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "23":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  }
 	},
 	"jueves": {
-		"0": {
-			"total": 633,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 500 },
-		"1": {
-			"total": 632,
-			"aire": 34,
-			"luz": 99,
-			"tomas": 499 },
-		"2": {
-			"total": 636,
-			"aire": 33,
-			"luz": 100,
-			"tomas": 503 },
-		"3": {
-			"total": 638,
-			"aire": 33,
-			"luz": 99,
-			"tomas": 505 },
-		"4": {
-			"total": 629,
-			"aire": 33,
-			"luz": 99,
-			"tomas": 496 },
-		"5": {
-			"total": 158,
-			"aire": 0,
-			"luz": 13,
-			"tomas": 145 },
-		"6": {
-			"total": 636,
-			"aire": 34,
-			"luz": 98,
-			"tomas": 503 },
-		"7": {
-			"total": 667,
-			"aire": 33,
-			"luz": 97,
-			"tomas": 537 },
-		"8": {
-			"total": 3686,
-			"aire": 2549,
-			"luz": 541,
-			"tomas": 595 },
-		"9": {
-			"total": 4069,
-			"aire": 2707,
-			"luz": 639,
-			"tomas": 723 },
-		"10": {
-			"total": 4727,
-			"aire": 2989,
-			"luz": 639,
-			"tomas": 723 },
-		"11": {
-			"total": 4930,
-			"aire": 3060,
-			"luz": 579,
-			"tomas": 1291 },
-		"12": {
-			"total": 5413,
-			"aire": 3483,
-			"luz": 575,
-			"tomas": 1356 },
-		"13": {
-			"total": 5384,
-			"aire": 3417,
-			"luz": 571,
-			"tomas": 1397 },
-		"14": {
-			"total": 4656,
-			"aire": 2989,
-			"luz": 528,
-			"tomas": 1139 },
-		"15": {
-			"total": 4547,
-			"aire": 2813,
-			"luz": 467,
-			"tomas": 1266 },
-		"16": {
-			"total": 3727,
-			"aire": 2195,
-			"luz": 392,
-			"tomas": 1139 },
-		"17": {
-			"total": 3166,
-			"aire": 1670,
-			"luz": 398,
-			"tomas": 1097 },
-		"18": {
-			"total": 2330,
-			"aire": 1311,
-			"luz": 210,
-			"tomas": 809 },
-		"19": {
-			"total": 572,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 523 },
-		"20": {
-			"total": 563,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 514 },
-		"21": {
-			"total": 521,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 472 },
-		"22": {
-			"total": 523,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 474 },
-		"23": {
-			"total": 518,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 468 }
+		"0":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "1":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "2":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "3":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "4":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "5":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "6":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "7":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "8":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "9":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "10":{
+		    "tomas":1024,
+		    "aires":848,
+		    "luces":226,
+		    "total":2097
+		  },
+		  "11":{
+		    "tomas":1303,
+		    "aires":929,
+		    "luces":309,
+		    "total":2540
+		  },
+		  "12":{
+		    "tomas":1626,
+		    "aires":1654,
+		    "luces":339,
+		    "total":3619
+		  },
+		  "13":{
+		    "tomas":1428,
+		    "aires":1393,
+		    "luces":333,
+		    "total":3154
+		  },
+		  "14":{
+		    "tomas":1274,
+		    "aires":1462,
+		    "luces":438,
+		    "total":3175
+		  },
+		  "15":{
+		    "tomas":1572,
+		    "aires":891,
+		    "luces":406,
+		    "total":2869
+		  },
+		  "16":{
+		    "tomas":1534,
+		    "aires":869,
+		    "luces":412,
+		    "total":2816
+		  },
+		  "17":{
+		    "tomas":1418,
+		    "aires":848,
+		    "luces":412,
+		    "total":2678
+		  },
+		  "18":{
+		    "tomas":841,
+		    "aires":848,
+		    "luces":337,
+		    "total":2026
+		  },
+		  "19":{
+		    "tomas":841,
+		    "aires":229,
+		    "luces":112,
+		    "total":1182
+		  },
+		  "20": {
+		    "tomas":546,
+		    "aires":40,
+		    "luces":112,
+		    "total":698
+		  },
+		  "21":{
+		    "tomas":541,
+		    "aires":40,
+		    "luces":112,
+		    "total":693
+		  },
+		  "22":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "23":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  }
 	},
 	"viernes": {
-		"0": {
-			"total": 514,
-			"aire": 35,
-			"luz": 15,
-			"tomas": 464 },
-		"1": {
-			"total": 522,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 472 },
-		"2": {
-			"total": 511,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 461 },
-		"3": {
-			"total": 514,
-			"aire": 35,
-			"luz": 15,
-			"tomas": 464 },
-		"4": {
-			"total": 551,
-			"aire": 35,
-			"luz": 15,
-			"tomas": 487 },
-		"5": {
-			"total": 551,
-			"aire": 35,
-			"luz": 15,
-			"tomas": 460 },
-		"6": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
-		"7": {
-			"total": 2461,
-			"aire": 1471,
-			"luz": 529,
-			"tomas": 461 },
-		"8": {
-			"total": 1864,
-			"aire": 1151,
-			"luz": 231,
-			"tomas": 483 },
-		"9": {
-			"total": 3396,
-			"aire": 2561,
-			"luz": 143,
-			"tomas": 692 },
-		"10": {
-			"total": 3580,
-			"aire": 2295,
-			"luz": 157,
-			"tomas": 1127 },
-		"11": {
-			"total": 3435,
-			"aire": 2168,
-			"luz": 187,
-			"tomas": 1079 },
-		"12": {
-			"total": 3580,
-			"aire": 2218,
-			"luz": 212,
-			"tomas": 1150 },
-		"13": {
-			"total": 4341,
-			"aire": 2727,
-			"luz": 273,
-			"tomas": 1341 },
-		"14": {
-			"total": 3912,
-			"aire": 2483,
-			"luz": 186,
-			"tomas": 1243 },
-		"15": {
-			"total": 4241,
-			"aire": 2870,
-			"luz": 255,
-			"tomas": 1116 },
-		"16": {
-			"total": 4194,
-			"aire": 2920,
-			"luz": 272,
-			"tomas": 1001 },
-		"17": {
-			"total": 3687,
-			"aire": 2564,
-			"luz": 280,
-			"tomas": 843 },
-		"18": {
-			"total": 2330,
-			"aire": 1311,
-			"luz": 210,
-			"tomas": 809 },
-		"19": {
-			"total": 572,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 523 },
-		"20": {
-			"total": 563,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 514 },
-		"21": {
-			"total": 521,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 472 },
-		"22": {
-			"total": 523,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 474 },
-		"23": {
-			"total": 518,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 468 }
+		"0":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "1":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "2":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "3":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "4":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "5":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "6":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "7":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "8":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "9":{
+		    "tomas":810,
+		    "aires":40,
+		    "luces":227,
+		    "total":1076
+		  },
+		  "10":{
+		    "tomas":1024,
+		    "aires":848,
+		    "luces":226,
+		    "total":2097
+		  },
+		  "11":{
+		    "tomas":1303,
+		    "aires":929,
+		    "luces":309,
+		    "total":2540
+		  },
+		  "12":{
+		    "tomas":1626,
+		    "aires":1654,
+		    "luces":339,
+		    "total":3619
+		  },
+		  "13":{
+		    "tomas":1428,
+		    "aires":1393,
+		    "luces":333,
+		    "total":3154
+		  },
+		  "14":{
+		    "tomas":1274,
+		    "aires":1462,
+		    "luces":438,
+		    "total":3175
+		  },
+		  "15":{
+		    "tomas":1572,
+		    "aires":891,
+		    "luces":406,
+		    "total":2869
+		  },
+		  "16":{
+		    "tomas":1534,
+		    "aires":869,
+		    "luces":412,
+		    "total":2816
+		  },
+		  "17":{
+		    "tomas":1418,
+		    "aires":848,
+		    "luces":412,
+		    "total":2678
+		  },
+		  "18":{
+		    "tomas":841,
+		    "aires":848,
+		    "luces":337,
+		    "total":2026
+		  },
+		  "19":{
+		    "tomas":841,
+		    "aires":229,
+		    "luces":112,
+		    "total":1182
+		  },
+		  "20": {
+		    "tomas":546,
+		    "aires":40,
+		    "luces":112,
+		    "total":698
+		  },
+		  "21":{
+		    "tomas":541,
+		    "aires":40,
+		    "luces":112,
+		    "total":693
+		  },
+		  "22":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  },
+		  "23":{
+		    "tomas":300,
+		    "aires":40,
+		    "luces":40,
+		    "total":380
+		  }
 	},
 	"sabado": {
 		"0": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"1": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"2": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"3": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"4": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"5": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"6": {
-			"total": 508,
-			"aire": 34,
-			"luz": 153,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"7": {
-			"total":508,
-			"aire": 34,
-			"luz": 153,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"8": {
-			"total":508,
-			"aire": 34,
-			"luz": 153,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"9": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"10": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"11": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"12": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"13": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"14": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"15": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"16": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"17": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"18": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"19": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"20": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"21": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"22": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"23": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 }
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 }
 	},
 	"domingo": {
 		"0": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"1": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"2": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"3": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"4": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"5": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"6": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"7": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"8": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"9": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"10": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"11": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"12": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"13": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"14": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"15": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"16": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"17": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"18": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"19": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"20": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"21": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"22": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 },
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 },
 		"23": {
-			"total": 508,
-			"aire": 34,
-			"luz": 15,
-			"tomas": 460 }
+			"tomas":270,
+		    "aires":40,
+		    "luces":40,
+		    "total":350 }
 	}
 }
