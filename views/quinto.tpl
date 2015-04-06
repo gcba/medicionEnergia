@@ -35,7 +35,7 @@
 
 <div class="outer">
 	<div class="middle">
-		<div class="inner container">
+		<div class="inner">
 			<div class="contenidoTexto">
 				<h1 id="estadoGeneral">Consumo energético</h1>
 				<h2 id="fraseGeneral">5to Piso</h2>
