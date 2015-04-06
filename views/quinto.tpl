@@ -9,10 +9,13 @@
 	<link href="_static/css/odometer.css" rel="stylesheet">
 </head>
 <body>
-	<div class="botones-pisos btn-group btn-group-lg" role="group" aria-label="...">
-	  <a href="/segundo"><button type="button" class="btn btn-default">2do Piso</button></a>
-	  <a href="/quinto"><button type="button" class="btn btn-default active">5to Piso</button></a>
+	<div class="switch">
+		<span class="labels-switch">2do</span>
+		<input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" checked="checked">
+		<label for="cmn-toggle-4"></label>
+		<span class="labels-switch">5to</span>
 	</div>
+
 	<div class="outer">
 		<div class="middle">
 			<div class="inner">

@@ -1,4 +1,5 @@
 dist/
 *.egg-info/
 static/node_modules
-css/components/
+static/css/components/
+scripts/*.pyc
