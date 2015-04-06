@@ -1,4 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/gotham.eot?#iefix") format("embedded-opentype"), url("fonts/gotham.woff2") format("woff2"), url("fonts/gotham.woff") format("woff"), url("fonts/gotham.ttf") format("truetype"), url("fonts/gotham.svg#Gotham") format("svg"); }
+
+/* ########
+   Fuentes
+   ######## */
+/* ########
+   Colores
+   ######## */
+/* ################
+   Bootstrap Resets
+   ################ */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -3147,8 +3162,8 @@ tbody.collapse.in {
       margin-right: 0; } }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7; }
+  background-color: transparent;
+  border-color: none; }
   .navbar-default .navbar-brand {
     color: #777; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -3163,7 +3178,7 @@ tbody.collapse.in {
       background-color: transparent; }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #555;
-    background-color: #e7e7e7; }
+    background-color: transparent; }
   .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
     color: #ccc;
     background-color: transparent; }
@@ -3174,9 +3189,9 @@ tbody.collapse.in {
     .navbar-default .navbar-toggle .icon-bar {
       background-color: #888; }
   .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #e7e7e7; }
+    border-color: none; }
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: #e7e7e7;
+    background-color: transparent;
     color: #555; }
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -3186,7 +3201,7 @@ tbody.collapse.in {
         background-color: transparent; }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #555;
-      background-color: #e7e7e7; }
+      background-color: transparent; }
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
@@ -3260,6 +3275,42 @@ tbody.collapse.in {
     .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:hover, fieldset[disabled] .navbar-inverse .btn-link:focus {
       color: #444; }
 
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #777777;
+  border-radius: 10px; }
+  .badge:empty {
+    display: none; }
+  .btn .badge {
+    position: relative;
+    top: -1px; }
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn .badge {
+    top: 0;
+    padding: 1px 5px; }
+  .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+    color: #337ab7;
+    background-color: #fff; }
+  .list-group-item > .badge {
+    float: right; }
+  .list-group-item > .badge + .badge {
+    margin-right: 5px; }
+  .nav-pills > li > a > .badge {
+    margin-left: 3px; }
+
+a.badge:hover, a.badge:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer; }
+
 .embed-responsive {
   position: relative;
   display: block;
@@ -3331,7 +3382,7 @@ button.close {
     padding: 0 5px; }
 
 .tooltip-inner {
-  max-width: 200px;
+  max-width: 520px;
   padding: 3px 8px;
   color: #fff;
   text-align: center;
@@ -3701,11 +3752,48 @@ button.close {
     display: none !important; } }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 10px;
   -webkit-tap-highlight-color: transparent; }
+
+header {
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 999;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  header .header-gcba {
+    height: 50px;
+    padding: 10px 0;
+    overflow: visible;
+    background-color: transparent; }
+  header .header-inner {
+    padding-right: 20px;
+    padding-left: 20px; }
+  header .header-gcba .logo {
+    float: left;
+    width: 172px;
+    height: 33px;
+    background-image: url("img/logo-invertido.png"); }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3/1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
+      header .header-gcba .logo {
+        background-image: url("img/logo-invertido_2x.png");
+        background-size: 172px 34px; } }
+  header .header-gcba h2.slogan {
+    float: right;
+    font-weight: bold;
+    margin-top: 0.75em;
+    font-size: 0.85em;
+    font-size: 12px;
+    letter-spacing: -1px;
+    color: #FFF;
+    text-transform: uppercase;
+    min-width: 150px; }
 
 body {
   font-size: 14px;
@@ -3749,7 +3837,8 @@ h2 {
   right: 20px;
   z-index: 999; }
 
-#valorTotal {
+.valores {
+  position: relative;
   float: left;
   z-index: 999;
   font-size: 4em;
@@ -3763,18 +3852,36 @@ h2 {
   border: 3px solid #ffffff;
   background-color: transparent;
   padding-top: 95px; }
+  .valores .badge {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    display: block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    color: #fff;
+    vertical-align: none;
+    background-color: transparent;
+    border: none; }
 
-#footer {
-  position: absolute;
+footer {
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: block;
+  color: #FFF;
+  bottom: 0px;
   width: 100%;
-  height: 10%;
-  background-color: #282828;
-  bottom: 0;
-  padding: 10px;
-  font-size: 0.9em;
-  font-weight: 100;
-  letter-spacing: 1px;
-  border-top: solid 1px white; }
+  background-color: #333333; }
+  footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+  footer .ministerio {
+    padding: 40px 50px; }
+  footer .modernizacion {
+    text-align: right; }
+  footer .definicion {
+    text-align: left; }
 
 @media screen and (max-width: 540px) {
   #footer {
@@ -3818,13 +3925,16 @@ h2 {
     user-select: none;
     float: left; }
 
-div.switch {
+.switch {
   position: absolute;
-  bottom: 12%;
+  bottom: 120px;
   width: 130px;
   margin-left: -65px;
   left: 50%;
   z-index: 900; }
+  .switch .faded {
+    opacity: 0.6;
+    filter: alpha(opacity=60); }
 
 @media screen and (max-width: 900px) {
   div.switch {
@@ -3832,7 +3942,8 @@ div.switch {
 
 span.labels-switch {
   padding: 5px;
-  float: left; }
+  float: left;
+  font-weight: 600; }
 
 /* ============================================================
   SWITCH 2 - ROUND FLAT

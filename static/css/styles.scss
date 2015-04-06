@@ -1,11 +1,35 @@
 @import "components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "mixins/opacity.scss";
 
 // @import "animate.min.css";
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-                 //
+@include font-face('Gotham', 'fonts/gotham');
+
+/* ########
+   Fuentes
+   ######## */
+
+$fontset-gotham: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+/* ########
+   Colores
+   ######## */
+
+
+$black: #000;
+$white: #FFF;
+
+
+/* ################
+   Bootstrap Resets
+   ################ */
+
+$navbar-default-bg: transparent;
+$navbar-default-border: none;
+$tooltip-max-width:           520px !default;
 
 // Import custom bootstrap components
 
@@ -32,6 +56,7 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/input-groups";
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navs";
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navbar";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/badges";
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed";
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/close";
 
@@ -44,11 +69,53 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 @import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-size: 10px;
   -webkit-tap-highlight-color: transparent;
+}
+
+header{
+    pointer-events: none;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    font-family: $fontset-gotham;
+
+    .header-gcba {
+        height:50px;
+        padding:10px 0;
+        overflow:visible;
+        background-color: transparent;
+    }
+
+    .header-inner {
+        padding-right:20px;
+        padding-left:20px
+    }
+
+    .header-gcba .logo {
+        float:left;
+        width:172px;
+        height:33px;
+        @include retina-image("img/logo-invertido", 172px 34px);
+    }
+
+    .header-gcba h2.slogan {
+        float: right;
+        font-weight: bold;
+        margin-top: 0.75em;
+        font-size: 0.85em;
+        font-size:12px;
+        letter-spacing:-1px;
+        color: $white;
+        text-transform: uppercase;
+        min-width: 150px;
+    }
 }
 
 body {
@@ -102,7 +169,8 @@ h2 {
   z-index: 999;
 }
 
-#valorTotal {
+.valores {
+  position: relative;
   float: left;
   z-index: 999;
   font-size: 4em;
@@ -116,20 +184,56 @@ h2 {
   border: 3px solid #ffffff;
   background-color: transparent;
   padding-top: 95px;
+  .badge {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    display: block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    color: #fff;
+    vertical-align: none;
+    background-color: transparent;
+    border: none;
+  }
 }
 
-#footer {
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  background-color: #282828;
-  bottom: 0;
-  padding: 10px;
-  font-size: 0.9em;
-  font-weight: 100;
-  letter-spacing: 1px;
-  border-top: solid 1px white;
+footer {
+    font-family: $fontset-gotham;
+    display: block;
+    color: $white;
+    bottom: 0px;
+    width: 100%;
+    background-color: #333333;
+    &.footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .ministerio {
+        padding: 40px 50px;
+    }
+    .modernizacion {
+        text-align: right;
+    }
+    .definicion {
+        text-align: left;
+    }
 }
+
+// #footer {
+//   position: absolute;
+//   width: 100%;
+//   height: 10%;
+//   background-color: #282828;
+//   bottom: 0;
+//   padding: 10px;
+//   font-size: 0.9em;
+//   font-weight: 100;
+//   letter-spacing: 1px;
+//   border-top: solid 1px white;
+// }
 
 @media screen and (max-width: 540px) {
   #footer {
@@ -184,13 +288,16 @@ h2 {
   }
 }
 
-div.switch {
+.switch {
   position: absolute;
-  bottom: 12%;
+  bottom: 120px;
   width: 130px;
   margin-left: -65px;
   left: 50%;
   z-index: 900;
+  .faded {
+    @include opacity(0.6);
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -202,6 +309,7 @@ div.switch {
 span.labels-switch {
   padding: 5px;
   float: left;
+  font-weight: 600;
 }
 
 /* ============================================================
