@@ -1,0 +1,404 @@
+@import "components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "mixins/opacity.scss";
+
+// @import "animate.min.css";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@include font-face('Gotham', 'fonts/gotham');
+
+/* ########
+   Fuentes
+   ######## */
+
+$fontset-gotham: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+/* ########
+   Colores
+   ######## */
+
+
+$black: #000;
+$white: #FFF;
+
+
+/* ################
+   Bootstrap Resets
+   ################ */
+
+$navbar-default-bg: transparent;
+$navbar-default-border: none;
+$tooltip-max-width:           520px !default;
+
+// Import custom bootstrap components
+
+// Core variables and mixins
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/glyphicons";
+
+// Core CSS
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/type";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/code";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/forms";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/component-animations";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/dropdowns";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/button-groups";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/input-groups";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navs";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/navbar";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/badges";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/tooltip";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/popovers";
+
+// Utility classes
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
+@import "components/bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities";
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+header{
+    pointer-events: none;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    font-family: $fontset-gotham;
+
+    .header-gcba {
+        height:50px;
+        padding:10px 0;
+        overflow:visible;
+        background-color: transparent;
+    }
+
+    .header-inner {
+        padding-right:20px;
+        padding-left:20px
+    }
+
+    .header-gcba .logo {
+        float:left;
+        width:172px;
+        height:33px;
+        @include retina-image("img/logo-invertido", 172px 34px);
+    }
+
+    .header-gcba h2.slogan {
+        float: right;
+        font-weight: bold;
+        margin-top: 0.75em;
+        font-size: 0.85em;
+        font-size:12px;
+        letter-spacing:-1px;
+        color: $white;
+        text-transform: uppercase;
+        min-width: 150px;
+    }
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.42857;
+  background-color: #444444;
+  color: #fff;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 1.8em;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 90%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .outer {
+    height: 85%;
+  }
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+}
+
+.botones-pisos {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.valores {
+  position: relative;
+  float: left;
+  z-index: 999;
+  font-size: 4em;
+  font-weight: 100;
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  background-color: transparent;
+  padding-top: 95px;
+  .badge {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    display: block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    color: #fff;
+    vertical-align: none;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+footer {
+    font-family: $fontset-gotham;
+    display: block;
+    color: $white;
+    bottom: 0px;
+    width: 100%;
+    background-color: #333333;
+    &.footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .ministerio {
+        padding: 40px 50px;
+    }
+    .modernizacion {
+        text-align: right;
+    }
+    .definicion {
+        text-align: left;
+    }
+}
+
+// #footer {
+//   position: absolute;
+//   width: 100%;
+//   height: 10%;
+//   background-color: #282828;
+//   bottom: 0;
+//   padding: 10px;
+//   font-size: 0.9em;
+//   font-weight: 100;
+//   letter-spacing: 1px;
+//   border-top: solid 1px white;
+// }
+
+@media screen and (max-width: 540px) {
+  #footer {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #footer {
+    height: 15%;
+  }
+}
+
+.warnings {
+  padding: 15px;
+  background-color: #ffffff;
+  display: none;
+  color: #858585;
+}
+
+.contenidoTexto {
+  width: 70%;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.typed-cursor {
+  display: none;
+}
+
+/* ============================================================
+  COMMON
+============================================================ */
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+  + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    float: left;
+  }
+}
+
+.switch {
+  position: absolute;
+  bottom: 120px;
+  width: 130px;
+  margin-left: -65px;
+  left: 50%;
+  z-index: 900;
+  .faded {
+    @include opacity(0.6);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  div.switch {
+    bottom: 17%;
+  }
+}
+
+span.labels-switch {
+  padding: 5px;
+  float: left;
+  font-weight: 600;
+}
+
+/* ============================================================
+  SWITCH 2 - ROUND FLAT
+============================================================ */
+
+input.cmn-toggle-round-flat {
+  + label {
+    padding: 0px;
+    width: 60px;
+    height: 30px;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    -o-transition: background 0.4s;
+    transition: background 0.4s;
+    &:before, &:after {
+      display: block;
+      position: absolute;
+      content: "";
+    }
+    &:before {
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      background-color: transparent;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+      border-radius: 30px;
+      -webkit-transition: background 0.4s;
+      -moz-transition: background 0.4s;
+      -o-transition: background 0.4s;
+      transition: background 0.4s;
+    }
+    &:after {
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      width: 30px;
+      border: 1px solid #ffffff;
+      background-color: #ffffff;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+      border-radius: 30px;
+      -webkit-transition: margin 0.4s, background 0.4s;
+      -moz-transition: margin 0.4s, background 0.4s;
+      -o-transition: margin 0.4s, background 0.4s;
+      transition: margin 0.4s, background 0.4s;
+    }
+  }
+  &:checked + label {
+    background-color: transparent;
+    &:after {
+      margin-left: 30px;
+      background-color: #ffffff;
+    }
+  }
+}
+
+// Pace
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  .pace-progress {
+    background: #29d;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+  }
+}
+
+.pace-inactive {
+  display: none;
+}

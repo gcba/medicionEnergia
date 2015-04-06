@@ -30,7 +30,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
     def on_receive(self, msg):
 
         if msg == "5to":
-            with open('static/data/objetivos5to.json') as objetivos_file:    
+            with open('static/data/objetivos5to.json') as objetivos_file:
                 objetivos = json.load(objetivos_file)
 
             borneras_aire_5t = ["9061", "9062", "9063"]
@@ -41,7 +41,7 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 self, aire=borneras_aire_5t, luz=borneras_luz_5t, corrientes=borneras_tomas_5t, objetivos=objetivos)
 
         elif msg == "2do":
-            with open('static/data/objetivos2do.json') as objetivos_file:    
+            with open('static/data/objetivos2do.json') as objetivos_file:
                 objetivos = json.load(objetivos_file)
 
             borneras_aire_2d = ["9031", "9033", "9035"]

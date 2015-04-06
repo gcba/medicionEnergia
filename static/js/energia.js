@@ -30,7 +30,7 @@ $("#cmn-toggle-4").on("change", function(){
 
 
 /****************
- * NOTIFICACIONES DE HORARIOS	
+ * NOTIFICACIONES DE HORARIOS
  ****************/
 
 var end_of_day = "Son las 18hs, hora de fijarse que nada quede prendido innecesariamente a la noche. ¿Luces? ¿Aires? ¿Computadoras? ¿Dispensers?",
@@ -42,7 +42,7 @@ function displayNotificacion(hora) {
     if(! ('Notification' in window) ){
 		alert('Web Notification is not supported');
 		return;
-	}	
+	}
 
 	Notification.requestPermission(function(permission){
 		var texto_notification = "";
@@ -60,7 +60,7 @@ function displayNotificacion(hora) {
 		var notification = new Notification("Consumo Energético",{body:texto_notification});
 	});
 }
- 
+
 //helper function to build up the desire time trigger
 function getTargetTime(hour,minute) {
   var t = new Date();
@@ -70,7 +70,7 @@ function getTargetTime(hour,minute) {
   t.setMilliseconds(0);
   return t;
 }
- 
+
 //get your offset to wait value
 var day_today = new Date().getDay();
 var timenow =  new Date().getTime();
@@ -119,13 +119,13 @@ socket.on('consumo_total', function(data) {
 		if(! ('Notification' in window) ){
 			alert('Web Notification is not supported');
 			return;
-		}	
+		}
 
 		Notification.requestPermission(function(permission){
 			var notification = new Notification("Consumo energético",{body:notificaciones[0]});
 		});
 	}
-	
+
 	if (estoy_pasado.total) {
 		$("body").css("background-color", "#d32f2e");
 		$("h1#estadoGeneral").text("¡Atención!");
@@ -158,9 +158,9 @@ socket.on('consumo_total', function(data) {
 					texto_aire += "¡Está nublado! ";
 				}
 				texto_aire += "Pueden mejorar el consumo.";
-			}	
+			}
 		}
-	} 
+	}
 
 	if (estoy_pasado.luces) {
 		texto_luz += "Las luces de la oficina están consumiendo más de lo permitido. ¿No hay ninguna prendida sin necesidad? ";
@@ -169,7 +169,7 @@ socket.on('consumo_total', function(data) {
 				texto_luz += "El día está soleado, la luz natural ayuda a bajar el consumo. ";
 			} else {
 				texto_luz += "El día está nublado, sí, pero pueden mejorar el consumo. ";
-			}	
+			}
 		}
 	}
 
@@ -190,9 +190,9 @@ socket.on('consumo_total', function(data) {
 					    strings: [texto_tomas],
 					    contentType: 'html' // or 'text'
 					});
-			    }  
-			});	
-	    } 
+			    }
+			});
+	    }
 	});
 
 	console.log(data);
@@ -205,4 +205,12 @@ socket.on('error', function(e){
 
 socket.on('disconnect', function(e){
 	console.log("Disconnect.")
+})
+
+/****************
+ * TOOLTIP BOOTSTRAP
+ ****************/
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
 })
