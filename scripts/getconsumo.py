@@ -8,6 +8,9 @@ import json
 import httplib
 import os
 import time
+import datetime
+from datetime import datetime
+
 import types
 
 API_CLIMA = "http://api.openweathermap.org/data/2.5/weather?id=3435910"
@@ -75,6 +78,14 @@ def transform(array):
         dic.update({array[key]: 0})
     return dic
 
+def getCurrentObjetivos(objetivos):
+    dias_semana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+    ahora = datetime.now()
+    dia = dias_semana[ahora.weekday()]
+    hora = str(ahora.hour)
+
+    return objetivos[dia][hora]
+
 def consumototal(self, **args):
 
     borneras_aire = transform(args.get('aire'))
@@ -91,20 +102,26 @@ def consumototal(self, **args):
     else:
         timewait = 5
 
-    count = 0
+    count_clima = 0
+
+    # variables para notificaciones
+    previous_state = "green"
+
+    # inicializar objeto estoyPasado
+    estoy_pasado = { "total": 0, "aire": 0, "luz": 0, "tomas": 0 }
 
     while True:
 
-        count += 1
+        count_clima += 1
         # despues de una hora, actualizar el clima
-        if count == timewait:
+        if count_clima == timewait:
             clima = GET_CLIMA()
             if clima == "null":
                 timewait = 5
-                count = 0
+                count_clima = 0
             else:
                 timewait = 300
-                count = 0
+                count_clima = 0
 
         # loopear por borneras de aire
         for _id in borneras_aire.keys():
@@ -138,21 +155,42 @@ def consumototal(self, **args):
         suma_tomas = sum(r_tomas)
         suma_total = suma_aire + suma_luz + suma_tomas
 
+        notificaciones = []
+
+        current_objetivos = getCurrentObjetivos(objetivos)
+        if (suma_total > current_objetivos["total"]):
+            estoy_pasado["total"] = 1
+            if (previous_state == "green"):
+                rojo_verde = Notificacion("¡Atención! El consumo es más alto que lo permitido.")
+                rojo_verde_noti = rojo_verde.getTexto()
+                notificaciones.append(rojo_verde_noti)
+            previous_state = "red"
+        else:
+            estoy_pasado["total"] = 0
+            previous_state = "green"
+
+        if (suma_aire > current_objetivos["aires"]):
+            estoy_pasado["aire"] = 1
+        else:
+            estoy_pasado["aire"] = 0
+            
+        if (suma_luz > current_objetivos["luces"]):
+            estoy_pasado["luz"] = 1
+        else:
+            estoy_pasado["luz"] = 0
+            
+        if (suma_tomas > current_objetivos["tomas"]):
+            estoy_pasado["tomas"] = 1
+        else:
+            estoy_pasado["tomas"] = 0            
+
+        self.emit('consumo_total', {'power_total': suma_total, 'estoy_pasado': estoy_pasado, 'clima': clima,
+                                    'notificaciones': notificaciones, 'objetivos': objetivos})
+
         # reset
         r_aire = []
         r_luz = []
         r_tomas = []
-
-        notificaciones = []
-
-        if (suma_aire > 0):
-            aire_noti = Notificacion("El aire esta pasado pibita")
-            aire_texto = aire_noti.getTexto()
-            notificaciones.append(aire_texto)
-
-        self.emit('consumo_total', {'power_total': suma_total, 'power_aire': suma_aire,
-                                    'power_luz': suma_luz, 'power_tomas': suma_tomas, 'clima': clima,
-                                    'notificaciones': notificaciones, 'objetivos': objetivos})
 
         # time.sleep(1)
     gevent.sleep(0.1)
@@ -163,6 +201,3 @@ class Notificacion:
 
     def getTexto(self):
         return self.texto
-
-    def displayNotificacion(self):
-        print "Mi notificacion es %s" % self.texto

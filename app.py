@@ -45,9 +45,9 @@ class consumoEnergetico(BaseNamespace, BroadcastMixin):
                 objetivos = json.load(objetivos_file)
 
             borneras_aire_2d = ["9031", "9033", "9035"]
-            borneras_luz_2d = [
+            borneras_tomas_2d = [
                 "9034", "9051", "9052", "9053", "9054", "9055", "9056"]
-            borneras_tomas_2d = ["9021", "9022", "9023"]
+            borneras_luz_2d = ["9021", "9022", "9023"]
             consumototal(
                 self, aire=borneras_aire_2d, luz=borneras_luz_2d, corrientes=borneras_tomas_2d, objetivos=objetivos)
 
