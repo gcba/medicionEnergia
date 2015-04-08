@@ -163,23 +163,24 @@ socket.on('consumo_total', function(data) {
 			    callback: function() {
 			    	$("#valorTomas").typed({
 					    strings: [texto_tomas],
-					    contentType: 'html' // or 'text'
+					    contentType: 'html',
+					    callback: function() {
+					    	if (notificaciones.length > 0) {
+								if(! ('Notification' in window) ){
+									alert('Web Notification is not supported');
+									return;
+								}
+
+								Notification.requestPermission(function(permission){
+									var notification = new Notification("Consumo energético",{body:notificaciones[0]});
+								});
+							}
+					    }
 					});
 			    }
 			});
 	    }
 	});
-
-	if (notificaciones.length > 0) {
-		if(! ('Notification' in window) ){
-			alert('Web Notification is not supported');
-			return;
-		}
-
-		Notification.requestPermission(function(permission){
-			var notification = new Notification("Consumo energético",{body:notificaciones[0]});
-		});
-	}
 
 	//console.log(data);
 
