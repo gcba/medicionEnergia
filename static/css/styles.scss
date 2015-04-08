@@ -142,9 +142,6 @@ body {
   // @media (max-height:700px) {
   //   border-top: 5px solid red;
   // }
-  // // @media (max-height:815px) {
-  // //     border-top: 5px solid yellow;
-  // // }
 }
 
 h1 {
@@ -338,6 +335,18 @@ footer {
     bottom: 0px;
     width: 100%;
     background-color: #333333;
+    @include breakpoint(xs) {
+
+    }
+    // @include breakpoint(sm) {
+    //   border-top: 5px solid #CC4A59;
+    // }
+    // @include breakpoint(md) {
+    //   border-top: 5px solid #772626;
+    // }
+    // @include breakpoint(lg) {
+    //   border-top: 5px solid #30013F;
+    // }
     &.footer {
       position: absolute;
       bottom: 0;
