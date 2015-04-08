@@ -185,7 +185,7 @@ def consumototal(self, **args):
             estoy_pasado["tomas"] = 0            
 
         self.emit('consumo_total', {'power_total': suma_total, 'estoy_pasado': estoy_pasado, 'clima': clima,
-                                    'notificaciones': notificaciones, 'objetivos': objetivos})
+                                    'notificaciones': notificaciones })
 
         # reset
         r_aire = []

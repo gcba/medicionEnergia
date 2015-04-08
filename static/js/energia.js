@@ -2,21 +2,6 @@ var piso = "5to";
 if (!$("#cmn-toggle-4").prop("checked")){
 	piso = "2do";
 }
-var objectivo_url = "_static/data/objetivos" + piso + ".json";
-
-var objetivos = (function() {
-    var json = null;
-    $.ajax({
-        'async': false,
-        'global': false,
-        'url': objectivo_url,
-        'dataType': "json",
-        'success': function (data) {
-            json = data;
-        }
-    });
-    return json;
-})();
 
 // Event handler - cambio de piso
 $("#cmn-toggle-4").on("change", function(){
@@ -106,8 +91,9 @@ socket.on('connect', function() {
 });
 
 socket.on('consumo_total', function(data) {
+	
 	// no sacar console.log , porque si lo pones abajo y antes aparece un error, me corta el debug
-	console.log(data);
+	//console.log(data);
 
 	// Consumo en este momento
 	var consumo_total = data.power_total;
@@ -195,7 +181,7 @@ socket.on('consumo_total', function(data) {
 	    }
 	});
 
-	console.log(data);
+	//console.log(data);
 
 });
 

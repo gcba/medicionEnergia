@@ -23,24 +23,24 @@ segundopiso = borneras_aire_2d + borneras_luz_2d + borneras_tomas_2d
 
 def main(desde, hasta):
 
-	for n in quintopiso + segundopiso:
-		url = "http://52.10.233.24/v1/circuits/{0}/latest/{1}/{2}".format(n, desde, hasta)
+	for _id in quintopiso + segundopiso:
+		url = "http://52.10.233.24/v1/circuits/{0}/latest/{1}/{2}".format(_id, desde, hasta)
 		print "cargando... url"
 		print url
 
 		res = urllib.urlopen(url)
 		filejson = json.load(res)
 		
-		__file = "{0}_{1}_{2}.csv".format(n, desde, hasta)
+		__file = "{0}_{1}_{2}.csv".format(_id, desde, hasta)
 		f = csv.writer(open(__file, "wb+"))
 		
 		print "cargando... file"
 		print __file
 
-		f.writerow(["vrms", "irms", "power", "timestamp"])
-
+		f.writerow(["sensor", "vrms", "irms", "power", "timestamp"])
 		for i in range(filejson['total']):
 		    f.writerow([
+		    			_id,
 						filejson['data'][i]['proc']['vrms'],
 						filejson['data'][i]['irms'],
 						filejson['data'][i]['power'],
