@@ -3772,9 +3772,6 @@ header {
     padding: 10px 0;
     overflow: visible;
     background-color: transparent; }
-  header .header-inner {
-    padding-right: 20px;
-    padding-left: 20px; }
   header .header-gcba .logo {
     float: left;
     width: 172px;
@@ -3786,10 +3783,10 @@ header {
         background-size: 172px 34px; } }
   header .header-gcba h2.slogan {
     float: right;
+    text-align: right;
     font-weight: bold;
     margin-top: 0.75em;
     font-size: 0.85em;
-    font-size: 12px;
     letter-spacing: -1px;
     color: #FFF;
     text-transform: uppercase;
@@ -3805,22 +3802,43 @@ h1 {
   font-size: 4em;
   font-weight: 100;
   letter-spacing: 1px; }
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 2em; } }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.5em; } }
+  @media (min-width: 992px) {
+    h1 {
+      font-size: 3em; } }
+  @media (min-width: 1200px) {
+    h1 {
+      font-size: 4em; } }
 
 h2 {
   font-size: 1.8em;
   font-weight: 100;
   letter-spacing: 1px;
   margin-bottom: 20px; }
+  @media (max-width: 767px) {
+    h2 {
+      font-size: .8em; } }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 1em; } }
+  @media (min-width: 992px) {
+    h2 {
+      font-size: 1.2em; } }
+  @media (min-width: 1200px) {
+    h2 {
+      font-size: 1.8em; } }
 
 .outer {
   display: table;
-  position: absolute;
-  height: 90%;
+  margin: 0;
+  max-width: none;
+  height: 80vh;
   width: 100%; }
-
-@media only screen and (max-width: 768px) {
-  .outer {
-    height: 85%; } }
 
 .middle {
   display: table-cell;
@@ -3839,7 +3857,6 @@ h2 {
 
 .valores {
   position: relative;
-  float: left;
   z-index: 999;
   font-size: 4em;
   font-weight: 100;
@@ -3851,7 +3868,14 @@ h2 {
   border-radius: 50%;
   border: 3px solid #ffffff;
   background-color: transparent;
-  padding-top: 95px; }
+  padding-top: 95px;
+  margin: 0 auto; }
+  @media (min-width: 1200px) {
+    .valores {
+      width: 350px;
+      height: 350px;
+      border: 5px solid #ffffff;
+      padding-top: 120px; } }
   .valores .badge {
     position: absolute;
     top: 100px;
@@ -3864,6 +3888,76 @@ h2 {
     vertical-align: none;
     background-color: transparent;
     border: none; }
+    @media (min-width: 1200px) {
+      .valores .badge {
+        top: 130px;
+        right: 50px; } }
+
+/* #######
+
+ODOMETER
+
+####### */
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default, .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative; }
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  visibility: hidden; }
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+  text-align: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden; }
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+  display: block; }
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+  display: block;
+  -webkit-backface-visibility: hidden; }
+.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
+  display: block;
+  -webkit-transform: translateZ(0); }
+.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+  position: absolute; }
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s; }
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%); }
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0); }
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  line-height: 1.1em; }
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
+  text-align: center; }
 
 footer {
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3877,29 +3971,17 @@ footer {
     bottom: 0;
     width: 100%; }
   footer .ministerio {
-    padding: 40px 50px; }
+    padding: 30px 0; }
   footer .modernizacion {
     text-align: right; }
   footer .definicion {
     text-align: left; }
-
-@media screen and (max-width: 540px) {
-  #footer {
-    font-size: 0.8em; } }
-
-@media screen and (max-width: 900px) {
-  #footer {
-    height: 15%; } }
 
 .warnings {
   padding: 15px;
   background-color: #ffffff;
   display: none;
   color: #858585; }
-
-.contenidoTexto {
-  width: 70%;
-  float: left; }
 
 .clear {
   clear: both; }
