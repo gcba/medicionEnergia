@@ -101,17 +101,6 @@ socket.on('consumo_total', function(data) {
 	var notificaciones = data.notificaciones;
 	var estoy_pasado = data.estoy_pasado;
 
-	if (notificaciones.length > 0) {
-		if(! ('Notification' in window) ){
-			alert('Web Notification is not supported');
-			return;
-		}
-
-		Notification.requestPermission(function(permission){
-			var notification = new Notification("Consumo energético",{body:notificaciones[0]});
-		});
-	}
-
 	if (estoy_pasado.total) {
 		$("body").css("background-color", "#d32f2e");
 		$("h1#estadoGeneral").text("¡Atención!");
@@ -163,7 +152,7 @@ socket.on('consumo_total', function(data) {
 		texto_tomas = "Las computadoras, dispensers de agua, impresoras, televisores y otros aparatos electrónicos enchufados a la pared están consumiendo más de lo permitido. ¿No hay ninguno prendido sin necesidad? Pueden mejorar el consumo. ";
 	}
 
-	$("#valorTotal").text(Math.round(consumo_total));
+	$(".odometer").html(Math.round(consumo_total).toString());
 	$("#valorAire").typed({
 	    strings: [texto_aire],
 	    contentType: 'html',
@@ -174,7 +163,19 @@ socket.on('consumo_total', function(data) {
 			    callback: function() {
 			    	$("#valorTomas").typed({
 					    strings: [texto_tomas],
-					    contentType: 'html' // or 'text'
+					    contentType: 'html',
+					    callback: function() {
+					    	if (notificaciones.length > 0) {
+								if(! ('Notification' in window) ){
+									alert('Web Notification is not supported');
+									return;
+								}
+
+								Notification.requestPermission(function(permission){
+									var notification = new Notification("Consumo energético",{body:notificaciones[0]});
+								});
+							}
+					    }
 					});
 			    }
 			});
