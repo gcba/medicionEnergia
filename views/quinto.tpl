@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="valores">
-				<div id="valorTotal" class="odometer"></div>
+				<div id="valorTotal" class="odometer">0</div>
 				<span class="badge">watts</span>
 			</div>
 
