@@ -76,10 +76,12 @@ dia.selectAll("rect")
         .style("fill", function(d) { return color(d.name); })
         .on("mouseover", function(d) {      
             tooltip.transition()        
-                .duration(100)      
+                .duration(0)      
                 .style("opacity", .9);      
                 tooltip.html(d.name + ": " + -1*(d.y0-d.y1) + "w");
             d3.selectAll($("rect:not(." + $(this).attr("class") + ")"))
+                .style("opacity", 0.3);
+            d3.selectAll($("g.legend > text:not(." + $(this).attr("class") + ")"))
                 .style("opacity", 0.3);
             })
         .on("mouseout", function(d) {       
@@ -87,6 +89,7 @@ dia.selectAll("rect")
                 .duration(200)      
                 .style("opacity", 0);
             d3.selectAll("rect").style("opacity", 1);
+            d3.selectAll("g.legend > text").style("opacity", 1);
             })
         .on("mousemove", function(){
             return tooltip.style("top", (event.pageY-10)+"px")
