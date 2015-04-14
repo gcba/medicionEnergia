@@ -3801,6 +3801,10 @@ body {
   background-color: #444444;
   color: #fff; }
 
+.historico {
+  background-color: #dddddd;
+}
+
 h1 {
   font-size: 4em;
   font-weight: 100;
@@ -3812,11 +3816,16 @@ h2 {
   letter-spacing: 1px;
   margin-bottom: 20px; }
 
-.outer {
+.outer, .outer-viz {
   display: table;
   position: absolute;
-  height: 90%;
   width: 100%; }
+.outer {
+  height: 80vh;
+}
+.outer-viz {
+  height: 100vh;
+}
 
 @media only screen and (max-width: 768px) {
   .outer {
@@ -3906,6 +3915,25 @@ footer {
 
 .typed-cursor {
   display: none; }
+
+#bar-graph {
+  text-align: center;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
 
 /* ============================================================
   COMMON

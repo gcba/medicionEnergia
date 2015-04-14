@@ -1,4 +1,7 @@
 dist/
 *.egg-info/
-static/node_modules
+node_modules/
 scripts/*.pyc
+scripts/
+iteraciones/
+static/fonts/
