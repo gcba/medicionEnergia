@@ -69,20 +69,24 @@ d3.csv("static/data/5tocategorias.csv", function(error, data) {
 dia.selectAll("rect")
     .data(function(d) { return d.categorias; })
     .enter().append("rect")
+        .attr("class", function(d) { return d.name })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.y1); })
         .attr("height", function(d) { return y(d.y0) - y(d.y1); })
         .style("fill", function(d) { return color(d.name); })
         .on("mouseover", function(d) {      
             tooltip.transition()        
-            .duration(100)      
-            .style("opacity", .9);      
-            tooltip.html(d.name + ": " + -1*(d.y0-d.y1) + "w")  
-            })                  
+                .duration(100)      
+                .style("opacity", .9);      
+                tooltip.html(d.name + ": " + -1*(d.y0-d.y1) + "w");
+            d3.selectAll($("rect:not(." + $(this).attr("class") + ")"))
+                .style("opacity", 0.3);
+            })
         .on("mouseout", function(d) {       
             tooltip.transition()        
-            .duration(200)      
-            .style("opacity", 0);   
+                .duration(200)      
+                .style("opacity", 0);
+            d3.selectAll("rect").style("opacity", 1);
             })
         .on("mousemove", function(){
             return tooltip.style("top", (event.pageY-10)+"px")
@@ -98,12 +102,14 @@ dia.selectAll("rect")
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
+      .attr("class", function(d) { return d; })
       .style("fill", color);
 
   legend.append("text")
       .attr("x", width - 24)
       .attr("y", 9)
       .attr("dy", ".35em")
+      .attr("class", function(d) { return d; })
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
