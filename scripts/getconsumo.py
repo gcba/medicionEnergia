@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+s#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import gevent
@@ -73,12 +73,14 @@ def GET_CLIMA():
 
 
 def transform(array):
+
     dic = {}
     for key in range(len(array)):
         dic.update({array[key]: 0})
     return dic
 
 def getCurrentObjetivos(objetivos):
+
     dias_semana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
     ahora = datetime.now()
     dia = dias_semana[ahora.weekday()]

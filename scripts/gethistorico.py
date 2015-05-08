@@ -3,12 +3,9 @@ import csv
 from datetime import datetime
 import urllib
 import sys
+import csv
 
-def epochhuman(epoch):
-	dt = datetime.fromtimestamp(epoch / 1000)
-	s = dt.strftime('%Y-%m-%d %H:%M:%S')
-	return s 
-		
+	
 #quinto piso
 borneras_aire_5t = ["9061", "9062", "9063"]
 borneras_luz_5t = ["9014", "9016"]
@@ -21,6 +18,13 @@ borneras_tomas_2d = ["9034", "9051", "9052", "9053", "9054", "9055", "9056"]
 quintopiso = borneras_aire_5t + borneras_luz_5t + borneras_tomas_5t
 segundopiso = borneras_aire_2d + borneras_luz_2d + borneras_tomas_2d
 
+
+def epochhuman(epoch):
+	dt = datetime.fromtimestamp(epoch / 1000)
+	s = dt.strftime('%Y-%m-%d %H:%M:%S')
+	return s 
+
+	
 def main(desde, hasta):
 
 	for _id in quintopiso + segundopiso:
