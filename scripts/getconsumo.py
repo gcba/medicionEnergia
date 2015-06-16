@@ -194,7 +194,7 @@ def consumototal(self, **args):
         r_luz = []
         r_tomas = []
 
-        # time.sleep(1)
+        time.sleep(2)
     gevent.sleep(0.1)
 
 class Notificacion:
