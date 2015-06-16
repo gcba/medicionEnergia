@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="_static/js/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="_static/js/typed.js"></script>
 	<script type="text/javascript" src="_static/css/components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
-	<link href="_static/css/styles.min.css" rel="stylesheet">
+	<link href="_static/css/styles.css" rel="stylesheet">
 	<link href="_static/css/odometer.css" rel="stylesheet">
 </head>
 <body>
@@ -24,13 +24,13 @@
 	</div>
 </header>
 
-<div class="switch">
+<!-- <div class="switch">
 	<span class="labels-switch faded">2do</span>
 	<input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" checked="checked">
 	<label for="cmn-toggle-4"></label>
 	<span class="labels-switch">5to</span>
 </div>
-
+ -->
 
 
 <div class="outer">
@@ -62,7 +62,9 @@
   <div class="container">
     <div class="row">
     <div class="col-md-8 ministerio definicion">
-    	<span data-toggle="tooltip" data-placement="right" title="Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar.">Eficiencia Energética en Edificios Públicos <span class="badge">?</span></span>
+    	<!-- data-toggle="tooltip" data-placement="right" title="Lo que aprendés y ahorrás en el trabajo impacta en la energía de tu casa, los hospitales, los colegios, los comercios y la industria del país. Mejorar el consumo es tarea de todos. Proyecto desarrollado en Laboratorio de Gobierno en conjunto con Less Industries y Alexis Caporale. Si tenes dudas o consultas escribinos a gobiernoabierto @ buenosaires.gob.ar." -->
+    	<span>Eficiencia Energética en Edificios Públicos <!-- <span class="badge">?</span> --></span>
+    	<span class="subtitulo-explicacion">Medición en tiempo real del consumo de energía en las oficinas del Laboratorio de Gobierno</span>
     </div>
     <div class="col-md-4 ministerio modernizacion">
     	Ministerio de Modernización

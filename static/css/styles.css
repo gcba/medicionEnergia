@@ -3815,7 +3815,7 @@ h2 {
 .outer {
   display: table;
   position: absolute;
-  height: 90%;
+  height: 70%;
   width: 100%; }
 
 @media only screen and (max-width: 768px) {
@@ -4021,3 +4021,9 @@ input.cmn-toggle-round-flat:checked + label {
 
 .pace-inactive {
   display: none; }
+
+.subtitulo-explicacion{
+  clear: both;
+  float: left;
+  font-size: 12px;
+}
