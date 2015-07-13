@@ -14,7 +14,7 @@ from datetime import datetime
 import types
 
 API_CLIMA = "http://api.openweathermap.org/data/2.5/weather?id=3435910"
-API_LESS = "http://52.10.233.24/v1/circuits/{0}/latest"
+API_LESS = "http://104.154.70.97/v1/circuits/{0}/latest"
 
 cielo = {
     800: "Soleado",
